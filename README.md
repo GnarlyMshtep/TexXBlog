@@ -1,2 +1,2 @@
 # TexXBlog
-Create a simple LaTeX-based blog that can be swiftly imbedded into any static site!
+Coming Soon: create a simple LaTeX-based blog that can be swiftly imbedded into any static site! 
