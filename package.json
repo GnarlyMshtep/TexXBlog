@@ -1,0 +1,26 @@
+{
+  "name": "tex-blog",
+  "version": "1.0.0",
+  "description": "A slick-lookin' no-backend LaTeX-based blog!",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GnarlyMshtep/TexXBlog.git"
+  },
+  "keywords": [
+    "LaTeX",
+    "Blog"
+  ],
+  "author": "Matan Shtepel",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/GnarlyMshtep/TexXBlog/issues"
+  },
+  "homepage": "https://github.com/GnarlyMshtep/TexXBlog#readme",
+  "dependencies": {
+    "mathjax": "^3.2.0"
+  }
+}
