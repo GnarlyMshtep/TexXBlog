@@ -1,0 +1,4 @@
+Didn't work because only render math, not the entire .tex doc to HTML: 
+    - Mathjax (js)
+    - KaTeX (js)
+    - Mathjax-node [some extension to mathJax] (js)
