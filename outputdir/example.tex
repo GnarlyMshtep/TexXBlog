@@ -3,6 +3,20 @@
 \usepackage{bm}
 \usepackage{amsfonts}
 
+
+
+
+
+
+
+\usepackage{graphicx}
+\graphicspath{ {/} }
+
+
+
+
+
+
 \RequirePackage[dvipsnames]{xcolor}
 \RequirePackage{amsfonts}
 
@@ -83,7 +97,11 @@ Therefore, as long as the definabillity problem is decidable in \K{} any algorit
 \textit{Claim:} $R_D$ is corecognisable in \K{}$\iff{}$ $R_D$ is decidable in \K{}.\\
 
 \noindent{}\textit{Proof:}\\
-(If:) Assume that $R_D$ is corecognisable in \K{}, that is, there exists $H\in{}\bm{K}$ s.t $H(c(A), x)=1$ $\iff{}$ $A(x)=*$. Construct $H'$ that decides $R_D$ as follows: $H'(c(A),x)$ is the parallal composition of $A_{sw(1,0)}\cdot{}H(c(A),x)$ and $C_1 \cdot{} U(c(A),x)$. Hence, $(H'(c(A),x)=1\iff{}A(x)=b\in{}R(A)$ $\wedge{}$ $(H'(c(A),x)=0\iff{}A(x)=*$.
+(If:) Assume that $R_D$ is corecognisable in \K{}, that is, there exists $H\in{}\bm{K}$ s.t $H(c(A), x)=1$ $\iff{}$ $A(x)=*$. Construct $H'$ that decides $R_D$ as follows: $H'(c(A),x)$ is the parallal composition of $A_{sw(1,0)}\cdot{}H(c(A),x)$ and $C_1 \cdot{} U(c(A),x)$. Hence, $(H'(c(A),x)=1\iff{}A(x)=b\in{}R(A)$ $\wedge{}$ $(H'(c(A),x)=0\iff{}A(x)=*$.\\
+
+Here's Edward Witten and Paul Dirac: \\
+
+\includegraphics[width=4cm, height=4cm]{wittenDirac.jpg}\\
 
 \noindent{}(Only If:) Assume that $R_D$ is decidable in \K{}, that is, there exists $H\in{}\bm{K}$ s.t $(H(c(A),x)=1\iff{}A(x)=b\in{}R(A)$ $\wedge{}$ $(H(c(A),x)=0\iff{}A(x)=*$. Construct $H'$ that corecognizes $R_D$ as follows: $H'=A_{sw(0,1)}\cdot{}H$ where $P_{sw(0,1)}$ switches a 0 by a 1 and is undefined for all other inputs. Hence, $H'(c(A), x)=1$ $\iff{}$ $A(x)=*$ and else $H'$ is undefined as desired.  
 

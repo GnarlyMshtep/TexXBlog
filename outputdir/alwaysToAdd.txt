@@ -1,0 +1,7 @@
+make4ht -m clean -a info example.tex
+<link href="fonts/Serif/cmun-serif.css" rel="stylesheet" type="text/css" />
+body {
+    font-family: 'Computer Modern';
+    margin: 0 auto;
+    width: 70%;
+}

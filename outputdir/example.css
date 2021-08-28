@@ -1,9 +1,8 @@
 body {
-    font-family: "Computer Modern Serif", sans-serif;
+    font-family: 'Computer Modern';
     margin: 0 auto;
-    width: 60%
+    width: 70%;
 }
-
 
 
 /* start css.sty */
@@ -606,6 +605,10 @@ figcaption.caption span.id {
 
 .abstract {
     margin: 1em;
+}
+
+.rotatebox {
+    display: inline-block;
 }
 
 /* end css.sty */
