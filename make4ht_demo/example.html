@@ -1,0 +1,117 @@
+<!DOCTYPE html> 
+<html lang='en-US' xml:lang='en-US'> 
+<head><title>Solving Problem 47 with TMs</title> 
+<meta charset='utf-8' /> 
+<meta content='TeX4ht (https://tug.org/tex4ht/)' name='generator' /> 
+<meta content='width=device-width,initial-scale=1' name='viewport' /> 
+<link href='example.css' rel='stylesheet' type='text/css' /> 
+<meta content='example.tex' name='src' /> 
+</head><body>
+   <div class='maketitle'>
+                                                                  
+
+                                                                  
+                                                                  
+
+                                                                  
+
+<h2 class='titleHead'>Solving Problem 47 with TMs</h2>
+<div class='author'><span class='cmr-12'>Matan Shtepel</span></div><br />
+<div class='date'><span class='cmr-12'>August 13, 2021</span></div>
+   </div>
+   <h3 class='sectionHead'><span class='titlemark'>1   </span> <a id='x1-10001'></a>Relevant Definitions</h3>
+     <ul class='itemize1'>
+     <li class='itemize'><span class='cmti-10'>Problem 25: </span>”Axiomatically describe classes <span class='cmmib-10'>K </span>of algorithms or automata
+     in which any algorithm/automaton has a totalling.”
+     </li>
+     <li class='itemize'><span class='cmti-10'>Problem 26: </span>”Axiomatically describe classes <span class='cmmib-10'>K </span>of algorithms or automata
+     in which any partial algorithm/automaton has an extension.” Note this
+     problem, as far as I can tell, is equivalent to problem 25, just stated from
+     a different perspective.
+     </li>
+     <li class='itemize'><span class='cmti-10'>Definabillity Problem </span><span class='cmmi-10'>R</span><sub><span class='cmmi-7'>d</span></sub><span class='cmti-10'>: </span>”Find an algorithm/automaton <span class='cmmi-10'>H </span>that for an
+     arbitrary algorithm/automaton <span class='cmmi-10'>A </span>from <span class='cmmib-10'>K </span>and an arbitrary element <span class='cmmi-10'>x</span>
+     from <span class='cmmi-10'>D</span><sup><span class='cmsy-7'>∗</span></sup>(<span class='cmmi-10'>K</span>), informs whether <span class='cmmi-10'>A</span>(<span class='cmmi-10'>x</span>) is defined.”
+     </li>
+     <li class='itemize'><span class='cmti-10'>Total definition: </span>An algo/automata A is called total  <span class='cmmi-10'>⇔ </span><span class='cmmi-10'>DD</span>(<span class='cmmi-10'>A</span>) = <span class='cmmi-10'>AD</span>(<span class='cmmi-10'>A</span>).
+     </li>
+     <li class='itemize'><span class='cmti-10'>Partial  definition:   </span>An   algo/automata   A   is   called   partial      <span class='cmmi-10'>⇔
+     </span><span class='cmmi-10'>DD</span>(<span class='cmmi-10'>A</span>)<span class='cmmi-10'>≠AD</span>(<span class='cmmi-10'>A</span>)
+     </li>
+     <li class='itemize'><span class='cmmi-10'>AD </span><span class='cmti-10'>vs </span><span class='cmmi-10'>DD</span><span class='cmti-10'>:  </span><span class='cmmi-10'>AD</span>(<span class='cmmi-10'>A</span>) is the acceptability domain, all the inputs <span class='cmmi-10'>A </span>can
+     accept. <span class='cmmi-10'>DD</span>(<span class='cmmi-10'>A</span>) are all the inputs for which <span class='cmmi-10'>A </span>gives an output. For example,
+     if <span class='cmmi-10'>A </span>is a turing machine that runs forever on any input, <span class='cmmi-10'>AD</span>(<span class='cmmi-10'>A</span>) contains
+     any string of input symbols, yet, <span class='cmmi-10'>DD</span>(<span class='cmmi-10'>A</span>) is the empty set.</li></ul>
+<!-- l. 78 --><p class='noindent'>I believe this is what the author (M. Burgin) intended, but for sake of being
+explicit, I will require that if an algorithm/automaton <span class='cmmi-10'>T </span>is a totaling for an
+algorithm/automaton <span class='cmmi-10'>A</span>, <span class='cmmi-10'>T </span>has to have following properties:
+     </p><ol class='enumerate1'>
+<li class='enumerate' id='x1-1002x1'><span class='cmmi-10'>A</span>(<span class='cmmi-10'>x</span>) = <span class='cmmi-10'>b </span><span class='cmsy-10'>→ </span><span class='cmmi-10'>T</span>(<span class='cmmi-10'>x</span>) = <span class='cmmi-10'>b</span>
+     </li>
+<li class='enumerate' id='x1-1004x2'><span class='cmmi-10'>A</span>(<span class='cmmi-10'>x</span>) = <span class='cmsy-10'>∗ </span>(A is not defined on input x, i.e, <span class='cmmi-10'>x</span><img alt='∕∈' class='notin' src='example0x.png' /><span class='cmmi-10'>DD</span>(<span class='cmmi-10'>A</span>)) <span class='cmsy-10'>→ </span><span class='cmmi-10'>T</span>(<span class='cmmi-10'>x</span>) = <span class='cmmi-10'>N</span>
+     where <span class='cmmi-10'>N </span>is a some element which symbolizes a null output and <span class='cmmi-10'>N</span><img alt='∕∈' class='notin' src='example1x.png' /><span class='cmmi-10'>C</span>(<span class='cmmi-10'>A</span>).</li></ol>
+<!-- l. 83 --><p class='noindent'>This way, <span class='cmmi-10'>T </span>is useful for evaluating <span class='cmmi-10'>A </span>on some input <span class='cmmi-10'>x</span>, allowing us to skip the infinite
+wait time in case <span class='cmmi-10'>A</span>(<span class='cmmi-10'>x</span>) is not defined. Additionally, <span class='cmmi-10'>N </span>being a distinct element
+which <span class='cmmi-10'>A </span>never outputs allows us to discern between the valid outputs of <span class='cmmi-10'>A</span>
+and the outputs tacked on by <span class='cmmi-10'>T </span>to complete the mapping, also a valuable
+property.
+</p><!-- l. 85 --><p class='noindent'>
+</p>
+   <h3 class='sectionHead'><span class='titlemark'>2   </span> <a id='x1-20002'></a>Proposed Reduction/Solution</h3>
+<!-- l. 86 --><p class='noindent'>The following discussion addresses both question 25 and 26. For convenience, I will
+state most of my ideas in terms of problem of 25, but the claim and proof applies to
+both problems. <br class='newline' />
+</p><!-- l. 88 --><p class='noindent'><span class='cmti-10'>Claim: </span>Any automaton/algo in class <span class='cmmib-10'>K </span>has a totalling  <span class='cmmi-10'>⇔</span>  the definability problem is
+decidable in <span class='cmmib-10'>K</span>. Or, in simpler terms, any algorithm/automata <span class='cmmi-10'>A </span>may be totaled if
+and only if we can tell for what inputs it is not defined.<br class='newline' />
+</p><!-- l. 90 --><p class='noindent'><span class='cmti-10'>Proof: </span><br class='newline' />(If:) Assume that we can total arbitrary algorithm/automaton <span class='cmmi-10'>A </span>to algorithm/automaton
+<span class='cmmi-10'>T </span>as defined above. Then, we can construct <span class='cmmi-10'>H </span>which decides the definability
+                                                                  
+
+                                                                  
+problem as such: <span class='cmmi-10'>H</span>(<span class='cmmi-10'>c</span>(<span class='cmmi-10'>A</span>)<span class='cmmi-10'>,x</span>) = <span class='cmmi-10'>P</span><sub><span class='cmmi-7'>sw</span></sub> <span class='cmsy-10'>⋅ </span><span class='cmmi-10'>T</span>(<span class='cmmi-10'>c</span>(<span class='cmmi-10'>A</span>)<span class='cmmi-10'>,x</span>) where <span class='cmmi-10'>P</span><sub><span class='cmmi-7'>sw</span></sub> is the parallel
+composition of <span class='cmmi-10'>A</span><sub><span class='cmmi-7'>sw</span><span class='cmr-7'>(</span><span class='cmmi-7'>N,</span><span class='cmr-7'>0)</span></sub> and <span class='cmmi-10'>A</span><sub><span class='cmmi-7'>sw</span><span class='cmr-7'>(</span><span class='cmsy-7'>¬</span><span class='cmmi-7'>N,</span><span class='cmr-7'>1)</span></sub>. As can be seen, (<span class='cmmi-10'>H</span>(<span class='cmmi-10'>c</span>(<span class='cmmi-10'>A</span>)<span class='cmmi-10'>,x</span>) = 1  <span class='cmmi-10'>⇔
+</span><span class='cmmi-10'>A</span>(<span class='cmmi-10'>x</span>) = <span class='cmmi-10'>b </span><span class='cmsy-10'>∈ </span><span class='cmmi-10'>C</span>(<span class='cmmi-10'>A</span>)) <span class='cmsy-10'>∧ </span>(<span class='cmmi-10'>H</span>(<span class='cmmi-10'>c</span>(<span class='cmmi-10'>A</span>)<span class='cmmi-10'>,x</span>) = 0  <span class='cmmi-10'>⇔  </span><span class='cmmi-10'>A</span>(<span class='cmmi-10'>x</span>) = <span class='cmsy-10'>∗</span>) . Hence, <span class='cmmi-10'>H </span>decides the definability
+problem.<br class='newline' />(Only if:) Assume that <span class='cmmi-10'>H</span><span class='cmsy-10'>′ </span>decides of the definability problem. We can construct
+<span class='cmmi-10'>H </span>that only corecognizes the decidability problem from <span class='cmmi-10'>H</span><span class='cmsy-10'>′ </span>by making <span class='cmmi-10'>H</span>
+output nothing if <span class='cmmi-10'>H</span><span class='cmsy-10'>′ </span>outputs a 1 and output a 1 if <span class='cmmi-10'>H</span><span class='cmsy-10'>′ </span>outputs a 0. Then,
+<span class='cmmi-10'>H </span>recognizes when algorithm/automaton <span class='cmmi-10'>A </span>in <span class='cmmib-10'>K </span>is not defined, that is,
+<span class='cmmi-10'>H</span>(<span class='cmmi-10'>c</span>(<span class='cmmi-10'>A</span>)<span class='cmmi-10'>,x</span>) = 1  <span class='cmmi-10'>⇔  </span><span class='cmmi-10'>A</span>(<span class='cmmi-10'>x</span>) = <span class='cmsy-10'>∗</span>. <span class='cmmi-10'>T</span>, the totalling of <span class='cmmi-10'>A</span>, will operate in the following way:
+<span class='cmmi-10'>T</span>(<span class='cmmi-10'>x</span>) is a parallel composition of <span class='cmmi-10'>A</span><sub><span class='cmmi-7'>sw</span><span class='cmr-7'>(1</span><span class='cmmi-7'>,N</span><span class='cmr-7'>)</span></sub> <span class='cmsy-10'>⋅ </span><span class='cmmi-10'>H </span>and <span class='cmmi-10'>A</span>. If the <span class='cmmi-10'>H </span>component
+gives a result first (which it must if it gives a result, since by def <span class='cmmi-10'>A </span>will
+never give a result) then <span class='cmmi-10'>A</span>(<span class='cmmi-10'>x</span>) = <span class='cmsy-10'>∗→ </span><span class='cmmi-10'>T</span>(<span class='cmmi-10'>x</span>) = <span class='cmmi-10'>N </span>as desired. Meanwhile
+if <span class='cmmi-10'>A </span>gives a result, <span class='cmmi-10'>b </span><span class='cmsy-10'>∈ </span><span class='cmmi-10'>R</span>(<span class='cmmi-10'>A</span>), <span class='cmmi-10'>H </span>will never output and <span class='cmmi-10'>T </span>will output <span class='cmmi-10'>b </span>as
+desired.<br class='newline' />
+</p><!-- l. 94 --><p class='indent'>   Therefore, as long as the definabillity problem is decidable in <span class='cmmib-10'>K </span>any algorithm
+automata can be totalled and vice-versa. Note that the corecognizability of the
+definabillity problem is also a sufficient and necessary since corecognizable implies
+decidability (view next section). Lastly, note this nice property: for all classes of
+algorithms/automata <span class='cmmib-10'>K </span>in which all <span class='cmmi-10'>A </span>are already total, the definability problem is
+easily corecognizable by <span class='cmmi-10'>H</span>, where <span class='cmmi-10'>H </span>is any algorithm/automaton s.t that
+<span class='cmmi-10'>DD</span>(<span class='cmmi-10'>H</span>) = <span class='cmsy-10'>∅</span>. It’s decidable by <span class='cmmi-10'>C</span><sub><span class='cmr-7'>1</span></sub>, the constant function 1.
+</p><!-- l. 96 --><p class='noindent'>
+</p>
+   <h3 class='sectionHead'><span class='titlemark'>3   </span> <a id='x1-30003'></a>Equivalency of Corecognisability and Decidability of <span class='cmmi-10'>R</span><sub><span class='cmmi-7'>D</span></sub></h3>
+<!-- l. 97 --><p class='noindent'><span class='cmti-10'>Claim: </span><span class='cmmi-10'>R</span><sub><span class='cmmi-7'>D</span></sub> is corecognisable in <span class='cmmib-10'>K </span><span class='cmmi-10'>⇔  </span><span class='cmmi-10'>R</span><sub><span class='cmmi-7'>D</span></sub> is decidable in <span class='cmmib-10'>K</span>.<br class='newline' />
+</p><!-- l. 99 --><p class='noindent'><span class='cmti-10'>Proof:</span><br class='newline' />(If:) Assume that <span class='cmmi-10'>R</span><sub><span class='cmmi-7'>D</span></sub> is corecognisable in <span class='cmmib-10'>K</span>, that is, there exists <span class='cmmi-10'>H </span><span class='cmsy-10'>∈</span><span class='cmmib-10'>K </span>s.t
+<span class='cmmi-10'>H</span>(<span class='cmmi-10'>c</span>(<span class='cmmi-10'>A</span>)<span class='cmmi-10'>,x</span>) = 1  <span class='cmmi-10'>⇔  </span><span class='cmmi-10'>A</span>(<span class='cmmi-10'>x</span>) = <span class='cmsy-10'>∗</span>. Construct <span class='cmmi-10'>H</span><span class='cmsy-10'>′ </span>that decides <span class='cmmi-10'>R</span><sub><span class='cmmi-7'>D</span></sub> as follows: <span class='cmmi-10'>H</span><span class='cmsy-10'>′</span>(<span class='cmmi-10'>c</span>(<span class='cmmi-10'>A</span>)<span class='cmmi-10'>,x</span>) is
+the parallal composition of <span class='cmmi-10'>A</span><sub><span class='cmmi-7'>sw</span><span class='cmr-7'>(1</span><span class='cmmi-7'>,</span><span class='cmr-7'>0)</span></sub> <span class='cmsy-10'>⋅ </span><span class='cmmi-10'>H</span>(<span class='cmmi-10'>c</span>(<span class='cmmi-10'>A</span>)<span class='cmmi-10'>,x</span>) and <span class='cmmi-10'>C</span><sub><span class='cmr-7'>1</span></sub> <span class='cmsy-10'>⋅ </span><span class='cmmi-10'>U</span>(<span class='cmmi-10'>c</span>(<span class='cmmi-10'>A</span>)<span class='cmmi-10'>,x</span>). Hence,
+(<span class='cmmi-10'>H</span><span class='cmsy-10'>′</span>(<span class='cmmi-10'>c</span>(<span class='cmmi-10'>A</span>)<span class='cmmi-10'>,x</span>) = 1 <span class='cmmi-10'>⇔ </span><span class='cmmi-10'>A</span>(<span class='cmmi-10'>x</span>) = <span class='cmmi-10'>b </span><span class='cmsy-10'>∈ </span><span class='cmmi-10'>R</span>(<span class='cmmi-10'>A</span>) <span class='cmsy-10'>∧ </span>(<span class='cmmi-10'>H</span><span class='cmsy-10'>′</span>(<span class='cmmi-10'>c</span>(<span class='cmmi-10'>A</span>)<span class='cmmi-10'>,x</span>) = 0 <span class='cmmi-10'>⇔ </span><span class='cmmi-10'>A</span>(<span class='cmmi-10'>x</span>) = <span class='cmsy-10'>∗</span>.<br class='newline' />
+</p><!-- l. 102 --><p class='indent'>   Here’s Edward Witten and Paul Dirac: <br class='newline' />
+</p><!-- l. 104 --><p class='indent'>   <img alt='PIC' height='113' src='wittenDirac.jpg' width='113' /><br class='newline' />
+</p><!-- l. 106 --><p class='noindent'>(Only If:) Assume that <span class='cmmi-10'>R</span><sub><span class='cmmi-7'>D</span></sub> is decidable in <span class='cmmib-10'>K</span>, that is, there exists <span class='cmmi-10'>H </span><span class='cmsy-10'>∈</span><span class='cmmib-10'>K </span>s.t
+(<span class='cmmi-10'>H</span>(<span class='cmmi-10'>c</span>(<span class='cmmi-10'>A</span>)<span class='cmmi-10'>,x</span>) = 1 <span class='cmmi-10'>⇔ </span><span class='cmmi-10'>A</span>(<span class='cmmi-10'>x</span>) = <span class='cmmi-10'>b </span><span class='cmsy-10'>∈ </span><span class='cmmi-10'>R</span>(<span class='cmmi-10'>A</span>) <span class='cmsy-10'>∧ </span>(<span class='cmmi-10'>H</span>(<span class='cmmi-10'>c</span>(<span class='cmmi-10'>A</span>)<span class='cmmi-10'>,x</span>) = 0 <span class='cmmi-10'>⇔ </span><span class='cmmi-10'>A</span>(<span class='cmmi-10'>x</span>) = <span class='cmsy-10'>∗</span>. Construct <span class='cmmi-10'>H</span><span class='cmsy-10'>′ </span>that
+corecognizes <span class='cmmi-10'>R</span><sub><span class='cmmi-7'>D</span></sub> as follows: <span class='cmmi-10'>H</span><span class='cmsy-10'>′ </span>= <span class='cmmi-10'>A</span><sub><span class='cmmi-7'>sw</span><span class='cmr-7'>(0</span><span class='cmmi-7'>,</span><span class='cmr-7'>1)</span></sub> <span class='cmsy-10'>⋅</span><span class='cmmi-10'>H </span>where <span class='cmmi-10'>P</span><sub><span class='cmmi-7'>sw</span><span class='cmr-7'>(0</span><span class='cmmi-7'>,</span><span class='cmr-7'>1)</span></sub> switches a 0 by a 1 and
+is undefined for all other inputs. Hence, <span class='cmmi-10'>H</span><span class='cmsy-10'>′</span>(<span class='cmmi-10'>c</span>(<span class='cmmi-10'>A</span>)<span class='cmmi-10'>,x</span>) = 1  <span class='cmmi-10'>⇔  </span><span class='cmmi-10'>A</span>(<span class='cmmi-10'>x</span>) = <span class='cmsy-10'>∗ </span>and else <span class='cmmi-10'>H</span><span class='cmsy-10'>′ </span>is
+undefined as desired. <br class='newline' />
+                                                                  
+
+                                                                  
+</p><!-- l. 108 --><p class='indent'>   Ishaan’s equation: <span class='cmmi-10'>E </span>= <span class='cmmi-10'>MC</span><sup><span class='cmr-7'>2</span></sup> — <span class='cmex-10'>∫</span>
+ <sub><span class='cmsy-7'>∞</span></sub><sup><span class='cmmi-7'>b</span></sup><span class='cmmi-10'>x</span><sup><span class='cmr-7'>2</span></sup> <span class='cmmi-10'>dx</span>
+</p><!-- l. 110 --><p class='noindent'>
+</p>
+   <h3 class='sectionHead'><span class='titlemark'>4   </span> <a id='x1-40004'></a>NOTING</h3>
+    
+</body> 
+</html>
