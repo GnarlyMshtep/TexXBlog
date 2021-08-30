@@ -13,8 +13,8 @@
     {
       "path": "index.md",
       "url": "index.html",
-      "content": "# Index page \r\n\r\nHere is an *important* index page\r\n\r\n\r\n```python \r\n    def index(): \r\n        return \"important\" \r\n```",
-      "html": "<h1 id=\"index-page\">Index page <a class=\"heading-anchor-permalink\" href=\"#index-page\">#</a></h1>\n<p>Here is an <em>important</em> index page</p>\n<pre><code class=\"language-python\">    def index(): \n        return &quot;important&quot; \n</code></pre>\n",
+      "content": "# Index page \r\n\r\nHere is an *important* index page\r\n\r\n\r\n```python \r\n    def index(): \r\n        return \"important\" \r\n```\r\n\r\nI am a math man $\\int_a^b  f(x) dx$",
+      "html": "<h1 id=\"index-page\">Index page <a class=\"heading-anchor-permalink\" href=\"#index-page\">#</a></h1>\n<p>Here is an <em>important</em> index page</p>\n<pre><code class=\"language-python\">    def index(): \n        return &quot;important&quot; \n</code></pre>\n<p>I am a math man $\\int_a^b  f(x) dx$</p>\n",
       "id": 0
     },
     {
