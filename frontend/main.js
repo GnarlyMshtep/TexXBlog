@@ -1,10 +1,15 @@
 // Selecting the iframe element
-const frame = document.getElementById("Iframe");
+
+const frame = document.querySelector("Iframe");
+
+console.log(frame);
 
 // Adjusting the iframe height onload event
 frame.onload = function ()
 // function execute while load the iframe
 {
+
+    console.log('hello!');
     // set the height of the iframe as 
     // the height of the iframe content
     frame.style.height =
