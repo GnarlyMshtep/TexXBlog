@@ -1,14 +1,15 @@
 // Selecting the iframe element
 
 const frame = document.querySelector("Iframe");
-
+//const sidebar = document.querySelector("nav")
 console.log(frame);
+
+
 
 // Adjusting the iframe height onload event
 frame.onload = function ()
 // function execute while load the iframe
 {
-
     console.log('hello!');
     // set the height of the iframe as 
     // the height of the iframe content

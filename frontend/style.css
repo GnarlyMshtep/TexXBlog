@@ -1,0 +1,39 @@
+:root {
+    --black: #141217ff;
+    --blue: #28587bff;
+    --brown: #63422cff;
+    --green: #bedabeff;
+}
+
+@media only screen and (min-width: 900px) {
+    .page-container {
+        display: flex;
+        flex-direction: row;
+    }
+
+    nav {
+        /*we will need a hamburger pop out for mobile*/
+        max-width: 20vw;
+        width: 120vw;
+        resize: horizontal;
+        border-right: 10px solid var(--brown);
+        height: 100%;
+        overflow-x: hidden;
+        position: fixed;
+        top: 0;
+        left: 0;
+        padding-top: 20px;
+        padding-left: 10px;
+    }
+
+    .main {
+        margin-left: 12vw;
+    }
+
+    iframe {
+        overflow-y: visible;
+        height: 100vh;
+    }
+}
+
+/* Desktop and larger */
