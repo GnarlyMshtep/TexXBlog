@@ -12,7 +12,7 @@
     --blue: #28587bff;
     --brown: rgb(83, 74, 67);
     --light-brown: rgba(124, 115, 115, 0.226);
-    --green: #bedabeff;
+    --green: rgb(162, 189, 162);
     --sidebar-width: 13vw
 }
 
@@ -33,9 +33,9 @@
         border-top: 10px solid var(--brown);
         border-right: 10px solid var(--brown);
         border-bottom: 10px solid var(--brown);*/
-        border-radius: 1%;
+        border-radius: 2.5%;
         height: 100%;
-        overflow-x: scroll;
+        overflow-y: hidden;
         position: fixed;
         top: 10px;
         left: -10px;
@@ -45,10 +45,11 @@
         background-color: var(--light-brown);
     }
 
-    nav .nav-container {
+    nav .nav-outer-container {
         z-index: 9;
         margin-top: -17px;
         margin-left: 1px;
+        margin-bottom: 2vh;
         /*padding: 5px;*/
     }
 
@@ -59,14 +60,12 @@
         border-radius: 3%;
         color: white;
 
-        padding-bottom: 5px;
         width: 100%;
         text-align: left;
         text-decoration: none;
         display: block;
         cursor: pointer;
-        font-size: rem;
-        padding: 10px 0 10px 1vw;
+        padding: 10px 1vw 15px 1vw;
 
     }
 
@@ -76,14 +75,38 @@
 
     #filter-button {
         margin-top: -22px;
-        padding: 20px 0;
+        padding: 25px 0;
         font-weight: 700;
         font-size: 2.5rem;
         text-align: center;
+
     }
 
+
     .nav-content-container {
-        margin-top: 2vh;
+        /*border-top: 10px solid var(--brown);*/
+
+    }
+
+    .article-button {
+        margin-bottom: .5vh;
+        width: 105%;
+    }
+
+    .article-button-title {
+        font-size: 1.2rem;
+        font-weight: 600;
+    }
+
+    .article-button-author {
+        font-size: .8rem;
+        font-weight: 500;
+    }
+
+    .article-button-date {
+        font-size: .6rem;
+        font-weight: 400;
+
     }
 
     /*?Nav styles end*/
@@ -100,4 +123,38 @@
     }
 }
 
-/* Desktop and larger */
+/* ?Desktop and larger ends*/
+
+/* !hide scrollbar but allow scrolling */
+nav {
+    -ms-overflow-style: none;
+    /* for Internet Explorer, Edge */
+    scrollbar-width: none;
+    /* for Firefox */
+    overflow-y: scroll;
+}
+
+nav::-webkit-scrollbar {
+    display: none;
+    /* for Chrome, Safari, and Opera */
+}
+
+
+/*!sexy scrollbar*/
+
+#style-1::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    background-color: #F5F5F5;
+}
+
+#style-1::-webkit-scrollbar {
+    width: 12px;
+    background-color: #F5F5F5;
+}
+
+#style-1::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
+    background-color: #555;
+}
