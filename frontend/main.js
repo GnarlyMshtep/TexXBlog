@@ -9,28 +9,34 @@ const maxAuthorLength = 15;
  */
 const frame = document.querySelector("Iframe");
 frame.onload = () => {
-    frame.style.height =
-        frame.contentWindow.document.body.scrollHeight + 'px';
-
-    frame.style.width =
-        frame.contentWindow.document.body.scrollWidth + 'px';
-
+    adjustFrameHeight();
 }
+
+function adjustFrameHeight() {
+    frame.style.height =
+        (frame.contentWindow.document.body.scrollHeight + 40) + 'px';
+    console.log(frame.contentWindow.document.body.scrollHeight);
+    console.log(frame.style.height);
+}
+
+
 
 /**
  * @abstract populate the navbar with the appropriate articles
  */
 const navContentContainer = document.querySelector('.nav-content-container');
-const populateNavbar = async (filter) => {
+
+
+const populateNavbar = async (jsonData, filter) => {
     //load the JSON
-    const jsonData = await loadJSONData();
 
     //then, empty the navbar. we onload so we can load the JSON before the entire file loads
     window.onload = () => {
         navContentContainer.innerHTML = "";
+        //console.log(jsonData.posts[0].id);
         //console.log(createNavButtonHTML(jsonData.posts[0].title, jsonData.posts[0].author, jsonData.posts[0].date));
         for (let i = 0; i < jsonData.posts.length; i++) {
-            navContentContainer.appendChild(createNavButtonHTML(jsonData.posts[i].title, jsonData.posts[i].author, jsonData.posts[i].date))
+            navContentContainer.appendChild(createNavButtonHTML(jsonData.posts[i].title, jsonData.posts[i].author, jsonData.posts[i].date, jsonData.posts[i].id))
         }
 
     }
@@ -48,7 +54,7 @@ const populateNavbar = async (filter) => {
                     <p class="article-button-date">9/4/2021</p>
             </div>
  */
-const createNavButtonHTML = (title, author, date, ) => {
+const createNavButtonHTML = (title, author, date, id) => {
     //normalize text length
     title = title.length > maxTitleLength ? title.substr(0, maxTitleLength) + "..." : title;
     author = author.length > maxAuthorLength ? author.substr(0, maxAuthorLength) + "..." : author;
@@ -56,6 +62,7 @@ const createNavButtonHTML = (title, author, date, ) => {
     //set up html elements
     let button = document.createElement("div");
     button.className = "article-button nav-button"
+    button.id = id
 
     let titleP = document.createElement("p")
     titleP.innerText = title;
@@ -85,5 +92,17 @@ const loadJSONData = async () => {
     return jsonData
 }
 
+async function main() {
+    const jsonData = await loadJSONData();
+    populateNavbar(jsonData);
+    navContentContainer.addEventListener('click', (clicked) => {
+        if (clicked.path[1].id) {
+            frame.src = "../_docs/" + jsonData.posts[clicked.path[1].id].filename;
+            adjustFrameHeight();
+        }
 
-populateNavbar();
+    }, false)
+}
+
+main();
+//!always handle events last
