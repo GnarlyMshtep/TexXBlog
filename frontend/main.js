@@ -1,4 +1,6 @@
 //constants
+//!make constants for the class names of the created elements
+
 const maxTitleLength = 20;
 const maxAuthorLength = 15;
 
@@ -19,10 +21,19 @@ frame.onload = () => {
  * @abstract populate the navbar with the appropriate articles
  */
 const navContentContainer = document.querySelector('.nav-content-container');
-const populateNavbar = (filter) => {
-    //first, empty the navbar.
-    navContentContainer.innerHTML = "";
+const populateNavbar = async (filter) => {
+    //load the JSON
+    const jsonData = await loadJSONData();
 
+    //then, empty the navbar. we onload so we can load the JSON before the entire file loads
+    window.onload = () => {
+        navContentContainer.innerHTML = "";
+        //console.log(createNavButtonHTML(jsonData.posts[0].title, jsonData.posts[0].author, jsonData.posts[0].date));
+        for (let i = 0; i < jsonData.posts.length; i++) {
+            navContentContainer.appendChild(createNavButtonHTML(jsonData.posts[i].title, jsonData.posts[i].author, jsonData.posts[i].date))
+        }
+
+    }
 }
 
 /**
@@ -44,6 +55,7 @@ const createNavButtonHTML = (title, author, date, ) => {
 
     //set up html elements
     let button = document.createElement("div");
+    button.className = "article-button nav-button"
 
     let titleP = document.createElement("p")
     titleP.innerText = title;
@@ -51,11 +63,11 @@ const createNavButtonHTML = (title, author, date, ) => {
 
     let authorP = document.createElement("p");
     authorP.innerText = author;
-    titleP.className = "article-button-author"
+    authorP.className = "article-button-author"
 
     let dateP = document.createElement("p");
     dateP.innerText = date;
-    titleP.className = "article-button-date"
+    dateP.className = "article-button-date"
 
     button.appendChild(titleP);
     button.appendChild(authorP);
@@ -63,3 +75,15 @@ const createNavButtonHTML = (title, author, date, ) => {
 
     return button;
 }
+
+const loadJSONData = async () => {
+    const rawJson = await fetch('config.json');
+    console.log(rawJson);
+    /*const reader = rawJson.arrayBuffer.body.getReader()
+    console.log(reader);*/
+    const jsonData = await rawJson.json();
+    return jsonData
+}
+
+
+populateNavbar();

@@ -1,4 +1,47 @@
-{
-    "_comment": "this is the file that contains all the meta-data about the blogs"
-}
+{"posts":[
+    {   
+        "title": "So what is a Blockchain?",
+        "author": "ishaan dham",
+        "date": "9/4/2021",
+        "rating" : "10"
+    },
+    
+    {   
+        "title": "This dude Dang just bit my arm lol the heck",
+        "author": "Matan Shtepel",
+        "date": "1/10/2025",
+        "rating" : "10"
+    },
+    {   
+        "title": "This dude Dang just bit my arm lol the heck",
+        "author": "Matan Shtepel",
+        "date": "1/10/2025",
+        "rating" : "10"
+    },
+    {   
+        "title": "This dude Dang just bit my arm lol the heck",
+        "author": "Matan Shtepel",
+        "date": "1/10/2025",
+        "rating" : "10"
+    },
+    {   
+        "title": "This dude Dang just bit my arm lol the heck",
+        "author": "Matan Shtepel",
+        "date": "1/10/2025",
+        "rating" : "10"
+    },
+    {   
+        "title": "So what is a Blockchain?",
+        "author": "ishaan dham",
+        "date": "9/4/2021",
+        "rating" : "10"
+    },
+    {   
+        "title": "So what is a Blockchain?",
+        "author": "ishaan dham",
+        "date": "9/4/2021",
+        "rating" : "10"
+    }
+    ]
 
+}
