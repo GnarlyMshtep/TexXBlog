@@ -109,6 +109,15 @@
 
     }
 
+    .no-posts-p {
+        font-size: .8rem;
+        font-weight: 500;
+        padding: 10px;
+        text-align: center;
+        color: var(--brown);
+
+    }
+
     /*?Nav styles end*/
     .nav-to-content-seperator {
         margin-left: var(--sidebar-width);

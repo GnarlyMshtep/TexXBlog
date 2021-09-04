@@ -35,8 +35,16 @@ const populateNavbar = async (jsonData, filter) => {
         navContentContainer.innerHTML = "";
         //console.log(jsonData.posts[0].id);
         //console.log(createNavButtonHTML(jsonData.posts[0].title, jsonData.posts[0].author, jsonData.posts[0].date));
-        for (let i = 0; i < jsonData.posts.length; i++) {
-            navContentContainer.appendChild(createNavButtonHTML(jsonData.posts[i].title, jsonData.posts[i].author, jsonData.posts[i].date, jsonData.posts[i].id))
+
+        if (jsonData.posts.length > 0) {
+            for (let i = 0; i < jsonData.posts.length; i++) {
+                navContentContainer.appendChild(createNavButtonHTML(jsonData.posts[i].title, jsonData.posts[i].author, jsonData.posts[i].date, jsonData.posts[i].id))
+            }
+        } else {
+            const noPostsP = document.createElement("p");
+            noPostsP.className = "no-posts-p "
+            noPostsP.innerText = "No posts avalabile with the applied filters. Try different filters!"
+            navContentContainer.appendChild(noPostsP)
         }
 
     }
