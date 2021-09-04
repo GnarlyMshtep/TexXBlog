@@ -1,8 +1,19 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+        Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+        "Segoe UI Symbol";
+}
+
 :root {
     --black: #141217ff;
     --blue: #28587bff;
-    --brown: #63422cff;
+    --brown: rgb(83, 74, 67);
+    --light-brown: rgba(124, 115, 115, 0.226);
     --green: #bedabeff;
+    --sidebar-width: 13vw
 }
 
 @media only screen and (min-width: 900px) {
@@ -11,24 +22,77 @@
         flex-direction: row;
     }
 
+    /*?Nav styles start*/
+
     nav {
         /*we will need a hamburger pop out for mobile*/
-        max-width: 20vw;
-        width: 120vw;
+        width: var(--sidebar-width);
         resize: horizontal;
+        /*!need to do js to make this proper*/
+        /*border-right: 10px solid var(--brown);
+        border-top: 10px solid var(--brown);
         border-right: 10px solid var(--brown);
+        border-bottom: 10px solid var(--brown);*/
+        border-radius: 1%;
         height: 100%;
-        overflow-x: hidden;
+        overflow-x: scroll;
         position: fixed;
-        top: 0;
-        left: 0;
+        top: 10px;
+        left: -10px;
         padding-top: 20px;
         padding-left: 10px;
+        box-shadow: 0 0 0 9px var(--brown);
+        background-color: var(--light-brown);
     }
 
-    .main {
-        margin-left: 12vw;
+    nav .nav-container {
+        z-index: 9;
+        margin-top: -17px;
+        margin-left: 1px;
+        /*padding: 5px;*/
     }
+
+    .nav-button {
+        background-color: var(--green);
+        /* Green */
+        border: none;
+        border-radius: 3%;
+        color: white;
+
+        padding-bottom: 5px;
+        width: 100%;
+        text-align: left;
+        text-decoration: none;
+        display: block;
+        cursor: pointer;
+        font-size: rem;
+        padding: 10px 0 10px 1vw;
+
+    }
+
+    .nav-button:hover {
+        color: var(--blue);
+    }
+
+    #filter-button {
+        margin-top: -22px;
+        padding: 20px 0;
+        font-weight: 700;
+        font-size: 2.5rem;
+        text-align: center;
+    }
+
+    .nav-content-container {
+        margin-top: 2vh;
+    }
+
+    /*?Nav styles end*/
+    .nav-to-content-seperator {
+        margin-left: var(--sidebar-width);
+        width: 3vw;
+    }
+
+    .main {}
 
     iframe {
         overflow-y: visible;
