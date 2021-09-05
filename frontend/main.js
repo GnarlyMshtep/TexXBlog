@@ -1,8 +1,47 @@
+//!utility funcs start
+const tagsMatch = (tags, filters) => {
+    console.log("hsbadjhasb", tags);
+    if (tags && filters) {
+        for (let i = 0; i < tags.length; i++) {
+            for (let i = 0; i < filters.length; i++) {
+                if (tags[i] === filters[i]) {
+                    console.log('i am included');
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+}
+
+function decreaseByFunction(originalWidth, currentWidth) {
+    console.log(Math.abs(originalWidth - currentWidth), currentWidth);
+    return (Math.min(Math.abs(originalWidth - currentWidth - 1), currentWidth));
+}
+
+function scrollNavBarAway(timestamp, originalWidth, currentCall) {
+    if (!originalWidth) {
+        originalWidth = this.offsetWidth;
+        currentCall = 0;
+    }
+
+    if (this.offsetWidth > 3) {
+        console.log(decreaseByFunction(originalWidth, this.offsetWidth, currentCall));
+        this.style.width = (this.offsetWidth - 3 /*decreaseByFunction(originalWidth, this.offsetWidth)*/ ) + "px";
+        window.requestAnimationFrame(scrollNavBarAway.bind(this, timestamp, originalWidth))
+    } else { // if no more animation, just make sure we are where we wanna be
+        this.style.width = "0px"
+    }
+}
+
+//utilities end
 //constants
 //!make constants for the class names of the created elements
 
 const maxTitleLength = 20;
 const maxAuthorLength = 15;
+
+//constants end
 
 /**
  * @abstract set the iframe's proper height
@@ -25,14 +64,13 @@ function adjustFrameHeight() {
 /**
  * @abstract populate the navbar with the appropriate articles
  */
-const navContentContainer = document.querySelector('.nav-content-container');
 
 /**
  * 
  * @param {comes from json file} jsonData 
  * @param {the filte of the posts} filter 
  */
-const populateNavbar = async (jsonData, filter = []) => {
+const populateNavbar = async (jsonData, filter = [], navContentContainer) => {
     //load the JSON
 
     //then, empty the navbar. we onload so we can load the JSON before the entire file loads
@@ -112,33 +150,46 @@ const loadJSONData = async () => {
 }
 
 async function main() {
-    const filters = ["quantom mechanics"]
+    const filters = ["quantom mechanics"] //?dummy filter for now
+    const jsonData = await loadJSONData(); //!start by loading JSON, we can do that concurrently with page load
 
-    const jsonData = await loadJSONData();
-    populateNavbar(jsonData, filters);
+    //get page elements 
+    const navContentContainer = document.querySelector('.nav-content-container');
+    const nav = document.querySelector('nav');
+    const clickAwayMiddle = document.querySelector('.clickaway-middle');
+    clickAwayMiddle.mClicked = false;
+
+    //call intioalization funcs
+
+    populateNavbar(jsonData, filters, navContentContainer);
+
+
+    //attach event listeners
+
     navContentContainer.addEventListener('click', (clicked) => {
         if (clicked.path[1].id) {
             frame.src = "../_docs/" + jsonData.posts[clicked.path[1].id].filename;
             adjustFrameHeight();
         }
 
-    }, false)
+    }, false);
+
+    clickAwayMiddle.addEventListener('click', (clicked) => {
+
+            if (clickAwayMiddle.mClicked) {
+                clickAwayMiddle.mClicked = !clickAwayMiddle.mClicked
+                window.requestAnimationFrame(scrollNavBarBackIn);
+            } else if (!clickAwayMiddle.mClicked) {
+                clickAwayMiddle.mClicked = !clickAwayMiddle.mClicked
+                window.requestAnimationFrame(scrollNavBarAway.bind(nav));
+            } else {
+                alert('error occured line 164')
+            }
+
+        }
+
+    );
 }
 
 main();
 //!always handle events last
-
-function tagsMatch(tags, filters) {
-    console.log("hsbadjhasb", tags);
-    if (tags && filters) {
-        for (let i = 0; i < tags.length; i++) {
-            for (let i = 0; i < filters.length; i++) {
-                if (tags[i] === filters[i]) {
-                    console.log('i am included');
-                    return true;
-                }
-            }
-        }
-        return false;
-    }
-}

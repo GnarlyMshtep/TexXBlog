@@ -24,24 +24,24 @@
 
     /*?Nav styles start*/
 
+    .nav-fixed-wrapper {
+        display: flex;
+        flex-direction: row;
+        position: fixed;
+        top: 0px;
+        left: -10px;
+        padding-top: 3vh;
+        padding-left: 10px;
+        height: 100%;
+    }
+
     nav {
         /*we will need a hamburger pop out for mobile*/
         width: var(--sidebar-width);
-        resize: horizontal;
-        /*!need to do js to make this proper*/
-        /*border-right: 10px solid var(--brown);
-        border-top: 10px solid var(--brown);
-        border-right: 10px solid var(--brown);
-        border-bottom: 10px solid var(--brown);*/
         border-radius: 1%;
         height: 100%;
         overflow-y: hidden;
         overflow-x: hidden;
-        position: fixed;
-        top: 10px;
-        left: -10px;
-        padding-top: 20px;
-        padding-left: 10px;
         box-shadow: 0 0 0 5px var(--brown);
         background-color: var(--light-brown);
     }
@@ -116,6 +116,42 @@
         padding: 10px;
         text-align: center;
         color: var(--brown);
+
+    }
+
+    .clickaway-container {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        width: .5vw;
+        margin-left: 5px;
+        background-color: transparent;
+    }
+
+    .clickaway-top {
+        height: 40%;
+        width: 100%;
+        background-color: transparent;
+
+
+    }
+
+    .clickaway-middle {
+        height: 20%;
+        background-color: lightgrey;
+        width: 100%;
+    }
+
+    .clickaway-middle:hover {
+        background-color: var(--blue);
+        cursor: pointer;
+    }
+
+
+    .clickawaybottom {
+        height: 40%;
+        width: 100%;
+        background-color: transparent;
 
     }
 
