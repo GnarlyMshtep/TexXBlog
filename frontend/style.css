@@ -36,6 +36,7 @@
         border-radius: 2.5%;
         height: 100%;
         overflow-y: hidden;
+        overflow-x: hidden;
         position: fixed;
         top: 10px;
         left: -10px;
@@ -128,7 +129,7 @@
 
     iframe {
         overflow-y: visible;
-        height: 100vh;
+        width: 100%;
     }
 }
 

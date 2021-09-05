@@ -15,6 +15,7 @@ frame.onload = () => {
 function adjustFrameHeight() {
     frame.style.height =
         (frame.contentWindow.document.body.scrollHeight + 40) + 'px';
+    frame.style.width = "100%"
     console.log(frame.contentWindow.document.body.scrollHeight);
     console.log(frame.style.height);
 }
@@ -26,8 +27,12 @@ function adjustFrameHeight() {
  */
 const navContentContainer = document.querySelector('.nav-content-container');
 
-
-const populateNavbar = async (jsonData, filter) => {
+/**
+ * 
+ * @param {comes from json file} jsonData 
+ * @param {the filte of the posts} filter 
+ */
+const populateNavbar = async (jsonData, filter = []) => {
     //load the JSON
 
     //then, empty the navbar. we onload so we can load the JSON before the entire file loads
@@ -35,12 +40,18 @@ const populateNavbar = async (jsonData, filter) => {
         navContentContainer.innerHTML = "";
         //console.log(jsonData.posts[0].id);
         //console.log(createNavButtonHTML(jsonData.posts[0].title, jsonData.posts[0].author, jsonData.posts[0].date));
-
+        let putUpArticles = false;
         if (jsonData.posts.length > 0) {
+
             for (let i = 0; i < jsonData.posts.length; i++) {
-                navContentContainer.appendChild(createNavButtonHTML(jsonData.posts[i].title, jsonData.posts[i].author, jsonData.posts[i].date, jsonData.posts[i].id))
+                //!check the filter
+                if (tagsMatch(jsonData.posts[i].tags, filter)) {
+                    putUpArticles = true
+                    navContentContainer.appendChild(createNavButtonHTML(jsonData.posts[i].title, jsonData.posts[i].author, jsonData.posts[i].date, jsonData.posts[i].id))
+                }
+
             }
-        } else {
+        } else if (!putUpArticles) {
             const noPostsP = document.createElement("p");
             noPostsP.className = "no-posts-p "
             noPostsP.innerText = "No posts avalabile with the applied filters. Try different filters!"
@@ -101,8 +112,10 @@ const loadJSONData = async () => {
 }
 
 async function main() {
+    const filter = ["quanton mechanics"]
+
     const jsonData = await loadJSONData();
-    populateNavbar(jsonData);
+    populateNavbar(jsonData, filter);
     navContentContainer.addEventListener('click', (clicked) => {
         if (clicked.path[1].id) {
             frame.src = "../_docs/" + jsonData.posts[clicked.path[1].id].filename;
@@ -114,3 +127,16 @@ async function main() {
 
 main();
 //!always handle events last
+
+function tagsMatch(tags, filters) {
+    console.log("hsbadjhasb", tags);
+    if (tags && filters) {
+        for (let i = 0; i < tags.length; i++) {
+            if (filters.includes(tags[i])) {
+                console.log('i am included');
+                return true;
+            }
+        }
+    }
+    return false;
+}

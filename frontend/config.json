@@ -6,6 +6,7 @@
         "rating" : "10",
         "id": "0",
         "filename": "index.html"
+        ,"tags": ["quantom mechanics"]
     },
     
     {   
@@ -15,6 +16,8 @@
         "rating" : "10",
         "id": "1",
         "filename": "banana.html"
+        ,"tags": ["quantom mechanics"]
+
     },
     {   
         "title": "This dude Dang just bit my arm lol the heck",
@@ -36,6 +39,8 @@
         "date": "1/10/2025",
         "rating" : "10",
         "id": "4"
+        ,"tags": ["quantom mechanics"]
+
     },
     {   
         "title": "So what is a Blockchain?",
