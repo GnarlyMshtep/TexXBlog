@@ -1,7 +1,6 @@
 1) add cool scroll to all files by defult https://codepen.io/GhostRider/pen/GHaFw
 2) compliation script
-3) filter action 
 4) offer center tag
-5) work on coloring 
+5) slide out sidebar
 
--- fix the ilterring 
+--enforce a size for all posts? 

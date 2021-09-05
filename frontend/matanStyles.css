@@ -10,9 +10,9 @@
 :root {
     --black: #141217ff;
     --blue: #28587bff;
-    --brown: rgb(199, 185, 180);
-    --light-brown: rgba(228, 227, 227, 0.226);
-    --green: rgb(156, 201, 156);
+    --brown: rgb(83, 74, 67);
+    --light-brown: rgba(124, 115, 115, 0.226);
+    --green: rgb(162, 189, 162);
     --sidebar-width: 13vw
 }
 
@@ -33,7 +33,7 @@
         border-top: 10px solid var(--brown);
         border-right: 10px solid var(--brown);
         border-bottom: 10px solid var(--brown);*/
-        border-radius: 1%;
+        border-radius: 2.5%;
         height: 100%;
         overflow-y: hidden;
         overflow-x: hidden;
@@ -42,7 +42,7 @@
         left: -10px;
         padding-top: 20px;
         padding-left: 10px;
-        box-shadow: 0 0 0 5px var(--brown);
+        box-shadow: 0 0 0 9px var(--brown);
         background-color: var(--light-brown);
     }
 
