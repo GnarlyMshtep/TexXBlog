@@ -112,10 +112,10 @@ const loadJSONData = async () => {
 }
 
 async function main() {
-    const filter = ["quanton mechanics"]
+    const filters = ["quantom mechanics"]
 
     const jsonData = await loadJSONData();
-    populateNavbar(jsonData, filter);
+    populateNavbar(jsonData, filters);
     navContentContainer.addEventListener('click', (clicked) => {
         if (clicked.path[1].id) {
             frame.src = "../_docs/" + jsonData.posts[clicked.path[1].id].filename;
@@ -132,11 +132,13 @@ function tagsMatch(tags, filters) {
     console.log("hsbadjhasb", tags);
     if (tags && filters) {
         for (let i = 0; i < tags.length; i++) {
-            if (filters.includes(tags[i])) {
-                console.log('i am included');
-                return true;
+            for (let i = 0; i < filters.length; i++) {
+                if (tags[i] === filters[i]) {
+                    console.log('i am included');
+                    return true;
+                }
             }
         }
+        return false;
     }
-    return false;
 }
