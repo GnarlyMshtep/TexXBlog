@@ -1,37 +1,37 @@
-//!utility funcs start
-const tagsMatch = (tags, filters) => {
-    console.log("hsbadjhasb", tags);
-    if (tags && filters) {
-        for (let i = 0; i < tags.length; i++) {
-            for (let i = 0; i < filters.length; i++) {
-                if (tags[i] === filters[i]) {
-                    console.log('i am included');
-                    return true;
-                }
-            }
-        }
-        return false;
+import utility from './utility.js'
+
+//Is scroll Out of screen (not in )
+function scrollNavBar(isScrollOut, originalWidth, timestamp, currentCall) {
+    if (!isScrollOut) {
+        console.log(isScrollOut, timestamp, originalWidth);
     }
-}
 
-function decreaseByFunction(originalWidth, currentWidth) {
-    console.log(Math.abs(originalWidth - currentWidth), currentWidth);
-    return (Math.min(Math.abs(originalWidth - currentWidth - 1), currentWidth));
-}
 
-function scrollNavBarAway(timestamp, originalWidth, currentCall) {
-    if (!originalWidth) {
-        originalWidth = this.offsetWidth;
+    if (!currentCall) {
         currentCall = 0;
+        console.log(originalWidth);
+        //        console.log(this.style.width);
     }
 
-    if (this.offsetWidth > 3) {
-        console.log(decreaseByFunction(originalWidth, this.offsetWidth, currentCall));
-        this.style.width = (this.offsetWidth - 3 /*decreaseByFunction(originalWidth, this.offsetWidth)*/ ) + "px";
-        window.requestAnimationFrame(scrollNavBarAway.bind(this, timestamp, originalWidth))
-    } else { // if no more animation, just make sure we are where we wanna be
-        this.style.width = "0px"
+    if (isScrollOut) {
+        if (this.offsetWidth > 2.5) {
+            this.style.width = utility.sideBarWidth(originalWidth, currentCall, isScrollOut) + "px";
+            console.log(utility.sideBarWidth(originalWidth, currentCall, true));
+            window.requestAnimationFrame(scrollNavBar.bind(this, isScrollOut, originalWidth, timestamp, currentCall + 2))
+        } else { // if no more animation, just make sure we are where we wanna be
+            this.style.width = "0px"
+        }
+    } else {
+        if (this.offsetWidth < originalWidth - 1.5) {
+            console.log('heyy');
+            this.style.width = utility.sideBarWidth(originalWidth, currentCall, isScrollOut) + "px";
+            console.log(utility.sideBarWidth(originalWidth, currentCall, false));
+            window.requestAnimationFrame(scrollNavBar.bind(this, isScrollOut, originalWidth, timestamp, currentCall + 2))
+        } else { // if no more animation, just make sure we are where we wanna be
+            this.style.width = originalWidth + "px"
+        }
     }
+
 }
 
 //utilities end
@@ -83,7 +83,7 @@ const populateNavbar = async (jsonData, filter = [], navContentContainer) => {
 
             for (let i = 0; i < jsonData.posts.length; i++) {
                 //!check the filter
-                if (tagsMatch(jsonData.posts[i].tags, filter)) {
+                if (utility.tagsMatch(jsonData.posts[i].tags, filter)) {
                     putUpArticles = true
                     navContentContainer.appendChild(createNavButtonHTML(jsonData.posts[i].title, jsonData.posts[i].author, jsonData.posts[i].date, jsonData.posts[i].id))
                 }
@@ -156,15 +156,16 @@ async function main() {
     //get page elements 
     const navContentContainer = document.querySelector('.nav-content-container');
     const nav = document.querySelector('nav');
+    const originalNavWidth = nav.offsetWidth
     const clickAwayMiddle = document.querySelector('.clickaway-middle');
-    clickAwayMiddle.mClicked = false;
+    clickAwayMiddle.mOnScreen = true;
 
     //call intioalization funcs
 
     populateNavbar(jsonData, filters, navContentContainer);
 
 
-    //attach event listeners
+    //!attach event listeners
 
     navContentContainer.addEventListener('click', (clicked) => {
         if (clicked.path[1].id) {
@@ -176,12 +177,12 @@ async function main() {
 
     clickAwayMiddle.addEventListener('click', (clicked) => {
 
-            if (clickAwayMiddle.mClicked) {
-                clickAwayMiddle.mClicked = !clickAwayMiddle.mClicked
-                window.requestAnimationFrame(scrollNavBarBackIn);
-            } else if (!clickAwayMiddle.mClicked) {
-                clickAwayMiddle.mClicked = !clickAwayMiddle.mClicked
-                window.requestAnimationFrame(scrollNavBarAway.bind(nav));
+            if (clickAwayMiddle.mOnScreen) {
+                clickAwayMiddle.mOnScreen = !clickAwayMiddle.mOnScreen
+                window.requestAnimationFrame(scrollNavBar.bind(nav, true, originalNavWidth))
+            } else if (!clickAwayMiddle.mOnScreen) {
+                clickAwayMiddle.mOnScreen = !clickAwayMiddle.mOnScreen
+                window.requestAnimationFrame(scrollNavBar.bind(nav, false, originalNavWidth));
             } else {
                 alert('error occured line 164')
             }
