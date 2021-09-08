@@ -1,3 +1,8 @@
+//!constants
+const maxTitleLength = 20;
+const maxAuthorLength = 15;
+const startFromOnSlideIntoScreen = 80
+
 const tagsMatch = (tags, filters) => {
     console.log("hsbadjhasb", tags);
     if (tags && filters) {
@@ -14,7 +19,7 @@ const tagsMatch = (tags, filters) => {
 }
 
 function sideBarWidth(originalWidth, callNumber, isForward) {
-    callNumber = isForward ? callNumber : 80 - callNumber
+    callNumber = isForward ? callNumber : startFromOnSlideIntoScreen - callNumber
 
     /*return (-originalWidth / 4) * (.05 * callNumber - 6) ** (1 / 3) + (1 / 2) * originalWidth*/
     //console.log(-originalWidth / (1 + Math.exp(-.06 * (callNumber - 100))) + originalWidth);
@@ -22,7 +27,37 @@ function sideBarWidth(originalWidth, callNumber, isForward) {
 
 }
 
+const createNavButtonHTML = (title, author, date, id) => {
+    //normalize text length
+    title = title.length > maxTitleLength ? title.substr(0, maxTitleLength) + "..." : title;
+    author = author.length > maxAuthorLength ? author.substr(0, maxAuthorLength) + "..." : author;
+
+    //set up html elements
+    let button = document.createElement("div");
+    button.className = "article-button nav-button"
+    button.id = id
+
+    let titleP = document.createElement("p")
+    titleP.innerText = title;
+    titleP.className = "article-button-title"
+
+    let authorP = document.createElement("p");
+    authorP.innerText = author;
+    authorP.className = "article-button-author"
+
+    let dateP = document.createElement("p");
+    dateP.innerText = date;
+    dateP.className = "article-button-date"
+
+    button.appendChild(titleP);
+    button.appendChild(authorP);
+    button.appendChild(dateP);
+
+    return button;
+}
+
 export default {
     tagsMatch,
-    sideBarWidth
+    sideBarWidth,
+    createNavButtonHTML
 }
