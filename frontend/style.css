@@ -17,6 +17,8 @@
 }
 
 @media only screen and (min-width: 900px) {
+
+    /**header starts*/
     header {
         width: 100%;
         background-color: var(--brown);
@@ -53,7 +55,8 @@
     }
 
 
-    .h3-header {}
+
+    /**header ends*/
 
     .page-container {
         display: flex;
@@ -115,8 +118,7 @@
     }
 
     #filter-button {
-        margin-top: -22px;
-        padding: 25px 0;
+        padding: 3vh 1.5vh 3vh 0;
         font-weight: 700;
         font-size: 2.5rem;
         text-align: center;

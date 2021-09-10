@@ -13,7 +13,9 @@ async function main() {
         window.addEventListener("load", windowLoaded);
     }
 
-    //stuff that should be done on load
+    /**
+     * @abstract Make the injections from teh JSON file to make the page customizable + set up event listeners. 
+     */
     function windowLoaded() {
         //fix Iframe height
         const Iframe = document.querySelector("Iframe");
@@ -28,6 +30,9 @@ async function main() {
         const headerLinksContainer = document.querySelector('.header-links');
         headerLinksContainer.innerHTML = "";
         populateHeaderLinks(jsonData.navLinks, headerLinksContainer)
+
+        document.querySelector('.h3-header').innerText = jsonData.title;
+
 
         //nav for scroll away
         const nav = document.querySelector('nav');

@@ -1,6 +1,6 @@
 1) add cool scroll to all files by defult https://codepen.io/GhostRider/pen/GHaFw
 2) compliation script
 4) offer center tag
-5) customizable title and links
 
 --enforce a size for all posts? 
+-- refactor so that we have a method called scroll element + scroll the page title
