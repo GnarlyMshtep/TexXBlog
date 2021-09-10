@@ -4,7 +4,7 @@ const maxAuthorLength = 15;
 const startFromOnSlideIntoScreen = 80
 
 const tagsMatch = (tags, filters) => {
-    console.log("hsbadjhasb", tags);
+    //console.log("hsbadjhasb", tags);
     if (tags && filters) {
         for (let i = 0; i < tags.length; i++) {
             for (let i = 0; i < filters.length; i++) {
@@ -56,8 +56,21 @@ const createNavButtonHTML = (title, author, date, id) => {
     return button;
 }
 
+const createNavLinkButtonHTML = (link) => {
+    const a = document.createElement("a")
+    a.href = link.href;
+
+    const div = document.createElement("div")
+    div.className = "header-link"
+    div.innerText = link.title
+
+    a.appendChild(div)
+    return a
+}
+
 export default {
     tagsMatch,
     sideBarWidth,
-    createNavButtonHTML
+    createNavButtonHTML,
+    createNavLinkButtonHTML
 }

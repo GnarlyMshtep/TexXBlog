@@ -13,10 +13,48 @@
     --brown: rgb(199, 185, 180);
     --light-brown: rgba(228, 227, 227, 0.226);
     --green: rgb(156, 201, 156);
-    --sidebar-width: 13vw
+    --sidebar-width: 15vw
 }
 
 @media only screen and (min-width: 900px) {
+    header {
+        width: 100%;
+        background-color: var(--brown);
+    }
+
+    .in-header-content-container {
+        margin-left: var(--sidebar-width);
+
+    }
+
+    .h3-header {
+        padding: 3vh 0 3vh 3vw;
+        color: white;
+        display: inline-block;
+    }
+
+    .header-links {
+        float: right;
+        display: flex;
+        flex-direction: row;
+        margin-right: 1vw;
+    }
+
+    .header-link {
+        padding: 3vh .65vw 3vh .75vw;
+        display: inline-block;
+        color: white;
+        font-weight: 600;
+        cursor: pointer;
+    }
+
+    .header-link:hover {
+        color: var(--blue);
+    }
+
+
+    .h3-header {}
+
     .page-container {
         display: flex;
         flex-direction: row;
@@ -61,12 +99,14 @@
         border-radius: 3%;
         color: white;
 
-        width: 100%;
+
         text-align: left;
         text-decoration: none;
         display: block;
         cursor: pointer;
         padding: 10px 1vw 15px 1vw;
+        width: 105%;
+
 
     }
 
@@ -80,9 +120,7 @@
         font-weight: 700;
         font-size: 2.5rem;
         text-align: center;
-
     }
-
 
     .nav-content-container {
         /*border-top: 10px solid var(--brown);*/

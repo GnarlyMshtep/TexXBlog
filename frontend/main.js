@@ -22,11 +22,18 @@ async function main() {
 
         //nav content container for population
         const navContentContainer = document.querySelector('.nav-content-container');
-        populateNavbar(jsonData, filters, navContentContainer);
+        populateNavbar(jsonData.posts, filters, navContentContainer);
+
+        //fill in header links
+        const headerLinksContainer = document.querySelector('.header-links');
+        headerLinksContainer.innerHTML = "";
+        populateHeaderLinks(jsonData.navLinks, headerLinksContainer)
 
         //nav for scroll away
         const nav = document.querySelector('nav');
-        const originalNavWidth = nav.offsetWidth
+        const originalNavWidth = nav.offsetWidth;
+        //main page for scroll
+        const navToContentSeperator = document.querySelector(".nav-to-content-seperator")
 
         //clickAwayButton for nav scrollaway event listener
         const clickAwayMiddle = document.querySelector('.clickaway-middle');
@@ -51,10 +58,10 @@ async function main() {
         clickAwayMiddle.addEventListener('click', (clicked) => {
                 if (clickAwayMiddle.mOnScreen) {
                     clickAwayMiddle.mOnScreen = !clickAwayMiddle.mOnScreen
-                    window.requestAnimationFrame(scrollNavBar.bind(nav, true, originalNavWidth))
+                    window.requestAnimationFrame(scrollNavBar.bind(nav, navToContentSeperator, true, originalNavWidth))
                 } else if (!clickAwayMiddle.mOnScreen) {
                     clickAwayMiddle.mOnScreen = !clickAwayMiddle.mOnScreen
-                    window.requestAnimationFrame(scrollNavBar.bind(nav, false, originalNavWidth));
+                    window.requestAnimationFrame(scrollNavBar.bind(nav, navToContentSeperator, false, originalNavWidth));
                 } else {
                     alert('error occured line 164')
                 }
@@ -63,30 +70,33 @@ async function main() {
 
         );
     }
-    console.log(window.onload)
 }
 
 
 //Is scroll Out of screen (not in ) //!move to utility
-function scrollNavBar(isScrollOut, originalWidth, timestamp, currentCall) {
+function scrollNavBar(navToContentSeperator, isScrollOut, originalWidth, timestamp, currentCall) {
 
 
-
+    let temp = 0
     if (!currentCall) {
         currentCall = 0;
     }
 
     if (isScrollOut) {
         if (this.offsetWidth > 2.5) {
-            this.style.width = utility.sideBarWidth(originalWidth, currentCall, isScrollOut) + "px";
-            window.requestAnimationFrame(scrollNavBar.bind(this, isScrollOut, originalWidth, timestamp, currentCall + 2))
+            temp = utility.sideBarWidth(originalWidth, currentCall, isScrollOut)
+            this.style.width = temp + "px";
+            navToContentSeperator.style.marginLeft = temp + "px"
+            window.requestAnimationFrame(scrollNavBar.bind(this, navToContentSeperator, isScrollOut, originalWidth, timestamp, currentCall + 2))
         } else { // if no more animation, just make sure we are where we wanna be
             this.style.width = "0px"
         }
     } else {
         if (this.offsetWidth < originalWidth - 1.5) {
-            this.style.width = utility.sideBarWidth(originalWidth, currentCall, isScrollOut) + "px";
-            window.requestAnimationFrame(scrollNavBar.bind(this, isScrollOut, originalWidth, timestamp, currentCall + 2))
+            temp = utility.sideBarWidth(originalWidth, currentCall, isScrollOut)
+            navToContentSeperator.style.marginLeft = temp + "px"
+            this.style.width = temp + "px";
+            window.requestAnimationFrame(scrollNavBar.bind(this, navToContentSeperator, isScrollOut, originalWidth, timestamp, currentCall + 2))
         } else { // if no more animation, just make sure we are where we wanna be
             this.style.width = originalWidth + "px"
         }
@@ -123,23 +133,23 @@ function adjustFrameHeight(Iframe) {
  * @param {comes from json file} jsonData 
  * @param {the filte of the posts} filter 
  */
-const populateNavbar = async (jsonData, filter = [], navContentContainer) => {
+const populateNavbar = async (posts, filter = [], navContentContainer) => {
     // JSON loaded
     //then, empty the navbar. we onload so we can load the JSON before the entire file loads
     navContentContainer.innerHTML = "";
 
     let putUpArticles = false; //we need this know if we should place the empty messege
-    if (jsonData.posts.length > 0) {
+    if (posts && posts.length > 0) {
 
-        for (let i = 0; i < jsonData.posts.length; i++) {
+        for (let i = 0; i < posts.length; i++) {
             //!check the filter
-            if (utility.tagsMatch(jsonData.posts[i].tags, filter)) {
+            if (utility.tagsMatch(posts[i].tags, filter)) {
                 putUpArticles = true
-                navContentContainer.appendChild(utility.createNavButtonHTML(jsonData.posts[i].title, jsonData.posts[i].author, jsonData.posts[i].date, jsonData.posts[i].id))
+                navContentContainer.appendChild(utility.createNavButtonHTML(posts[i].title, posts[i].author, posts[i].date, posts[i].id))
             }
 
         }
-    } else if (!putUpArticles) {
+    } else if (!putUpArticles || !posts) {
         const noPostsP = document.createElement("p");
         noPostsP.className = "no-posts-p "
         noPostsP.innerText = "No posts avalabile with the applied filters. Try different filters!"
@@ -147,6 +157,14 @@ const populateNavbar = async (jsonData, filter = [], navContentContainer) => {
     }
 
 }
+const populateHeaderLinks = (links, headerLinksContainer) => {
+    if (links) {
+        for (let i = 0; i < links.length; i++) {
+            headerLinksContainer.appendChild(utility.createNavLinkButtonHTML(links[i]))
+        }
+    }
+}
+
 
 
 /**
