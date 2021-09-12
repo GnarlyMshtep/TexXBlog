@@ -1,3 +1,11 @@
+/**
+?What should be done? 
+- compile all docs
+- add new docs to JSON
+- prompt the user to input in measing details with autocomplete, particularly on tags. 
+ */
+
+
 //!This is the main compilation script that runs the application 
 
 

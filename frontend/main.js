@@ -81,7 +81,7 @@ async function main() {
 
 
 //Is scroll Out of screen (not in ) //!move to utility
-//?I'm ugly! please refactor me :)
+//?!I'm ugly! please refactor me :)
 function scrollNavBar(headerWrapper, navToContentSeperator, isScrollOut, originalWidth, timestamp, currentCall) {
 
     let temp = 0
