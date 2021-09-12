@@ -1,72 +1,70 @@
-{"title": "Berkley's condesanting activism",
-    
-    "posts":[
-    {   
-        "title": "Index",
-        "author": "ishaan dham",
-        "date": "9/4/2021",
-        "rating" : "10",
-        "id": "0",
-        "filename": "index.html"
-        ,"tags": ["quantom mechanics"]
-    },
-    
-    {   
-        "title": "Banana",
-        "author": "Matan Shtepel",
-        "date": "1/10/2025",
-        "rating" : "10",
-        "id": "1",
-        "filename": "banana.html"
-        ,"tags": ["quantom mechanics"]
+{
+    "title": "Berkley's condesanting activism",
 
-    },
-    {   
-        "title": "This dude Dang just bit my arm lol the heck",
-        "author": "Matan Shtepel",
-        "date": "1/10/2025",
-        "rating" : "10",
-        "id": "2"
-    },
-    {   
-        "title": "This dude Dang just bit my arm lol the heck",
-        "author": "Matan Shtepel",
-        "date": "1/10/2025",
-        "rating" : "10",
-        "id": "3"
-    },
-    {   
-        "title": "This dude Dang just bit my arm lol the heck",
-        "author": "Matan Shtepel",
-        "date": "1/10/2025",
-        "rating" : "10",
-        "id": "4"
-        ,"tags": ["quantom mechanics"]
+    "posts": [{
+            "title": "Index",
+            "author": "ishaan dham",
+            "date": "9/4/2021",
+            "rating": "10",
+            "id": "0",
+            "filename": "index.html",
+            "tags": ["quantom mechanics"]
+        },
 
-    },
-    {   
-        "title": "So what is a Blockchain?",
-        "author": "ishaan dham",
-        "date": "9/4/2021",
-        "rating" : "10",
-        "id": "5"
-    },
-    {   
-        "title": "So what is a Blockchain?",
-        "author": "ishaan dham",
-        "date": "9/4/2021",
-        "rating" : "10",
-        "id": "6"
-    }
-    ],
-    "navLinks":[
         {
-            "title": "Matan's Home Page",
-            "href": "http://matanshtepel.com/"
-        }, {
-            "title": "Ishaan's Home Page",
-            "href": "https://ishaandham.com/"
+            "title": "Banana",
+            "author": "Matan Shtepel",
+            "date": "1/10/2025",
+            "rating": "10",
+            "id": "1",
+            "filename": "banana.html",
+            "tags": ["quantom mechanics"]
+
+        },
+        {
+            "title": "This dude Dang just bit my arm lol the heck",
+            "author": "Matan Shtepel",
+            "date": "1/10/2025",
+            "rating": "10",
+            "id": "2"
+        },
+        {
+            "title": "This dude Dang just bit my arm lol the heck",
+            "author": "Matan Shtepel",
+            "date": "1/10/2025",
+            "rating": "10",
+            "id": "3"
+        },
+        {
+            "title": "This dude Dang just bit my arm lol the heck",
+            "author": "Matan Shtepel",
+            "date": "1/10/2025",
+            "rating": "10",
+            "id": "4",
+            "tags": ["quantom mechanics"]
+
+        },
+        {
+            "title": "So what is a Blockchain?",
+            "author": "ishaan dham",
+            "date": "9/4/2021",
+            "rating": "10",
+            "id": "5"
+        },
+        {
+            "title": "So what is a Blockchain?",
+            "author": "ishaan dham",
+            "date": "9/4/2021",
+            "rating": "10",
+            "id": "6"
         }
-    ]
+    ],
+    "navLinks": [{
+        "title": "Matan's Home Page",
+        "href": "http://matanshtepel.com/"
+    }, {
+        "title": "Ishaan's Home Page",
+        "href": "https://ishaandham.com/"
+    }]
 
 }

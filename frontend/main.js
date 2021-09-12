@@ -38,7 +38,9 @@ async function main() {
         const nav = document.querySelector('nav');
         const originalNavWidth = nav.offsetWidth;
         //main page for scroll
-        const navToContentSeperator = document.querySelector(".nav-to-content-seperator")
+        const navToContentSeperator = document.querySelector(".nav-to-content-seperator");
+        //header for scroll 
+        const headerWrapper = document.querySelector(".in-header-content-container");
 
         //clickAwayButton for nav scrollaway event listener
         const clickAwayMiddle = document.querySelector('.clickaway-middle');
@@ -63,10 +65,10 @@ async function main() {
         clickAwayMiddle.addEventListener('click', (clicked) => {
                 if (clickAwayMiddle.mOnScreen) {
                     clickAwayMiddle.mOnScreen = !clickAwayMiddle.mOnScreen
-                    window.requestAnimationFrame(scrollNavBar.bind(nav, navToContentSeperator, true, originalNavWidth))
+                    window.requestAnimationFrame(scrollNavBar.bind(nav, headerWrapper, navToContentSeperator, true, originalNavWidth))
                 } else if (!clickAwayMiddle.mOnScreen) {
                     clickAwayMiddle.mOnScreen = !clickAwayMiddle.mOnScreen
-                    window.requestAnimationFrame(scrollNavBar.bind(nav, navToContentSeperator, false, originalNavWidth));
+                    window.requestAnimationFrame(scrollNavBar.bind(nav, headerWrapper, navToContentSeperator, false, originalNavWidth));
                 } else {
                     alert('error occured line 164')
                 }
@@ -79,8 +81,8 @@ async function main() {
 
 
 //Is scroll Out of screen (not in ) //!move to utility
-function scrollNavBar(navToContentSeperator, isScrollOut, originalWidth, timestamp, currentCall) {
-
+//?I'm ugly! please refactor me :)
+function scrollNavBar(headerWrapper, navToContentSeperator, isScrollOut, originalWidth, timestamp, currentCall) {
 
     let temp = 0
     if (!currentCall) {
@@ -92,7 +94,8 @@ function scrollNavBar(navToContentSeperator, isScrollOut, originalWidth, timesta
             temp = utility.sideBarWidth(originalWidth, currentCall, isScrollOut)
             this.style.width = temp + "px";
             navToContentSeperator.style.marginLeft = temp + "px"
-            window.requestAnimationFrame(scrollNavBar.bind(this, navToContentSeperator, isScrollOut, originalWidth, timestamp, currentCall + 2))
+            headerWrapper.style.marginLeft = temp + "px"
+            window.requestAnimationFrame(scrollNavBar.bind(this, headerWrapper, navToContentSeperator, isScrollOut, originalWidth, timestamp, currentCall + 2))
         } else { // if no more animation, just make sure we are where we wanna be
             this.style.width = "0px"
         }
@@ -101,7 +104,8 @@ function scrollNavBar(navToContentSeperator, isScrollOut, originalWidth, timesta
             temp = utility.sideBarWidth(originalWidth, currentCall, isScrollOut)
             navToContentSeperator.style.marginLeft = temp + "px"
             this.style.width = temp + "px";
-            window.requestAnimationFrame(scrollNavBar.bind(this, navToContentSeperator, isScrollOut, originalWidth, timestamp, currentCall + 2))
+            headerWrapper.style.marginLeft = temp + "px"
+            window.requestAnimationFrame(scrollNavBar.bind(this, headerWrapper, navToContentSeperator, isScrollOut, originalWidth, timestamp, currentCall + 2))
         } else { // if no more animation, just make sure we are where we wanna be
             this.style.width = originalWidth + "px"
         }
