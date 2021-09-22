@@ -17,6 +17,7 @@ const editJsonFile = require("edit-json-file");
 const inquirer = require('inquirer')
 //!https://github.com/mokkabonna/inquirer-autocomplete-prompt
 
+
 const main = async () => {
     const output = execSync('npm run docs', {
         encoding: 'utf-8'
@@ -24,13 +25,15 @@ const main = async () => {
     let config = editJsonFile(`${__dirname}/config.json`);
     let compiledFiles = editJsonFile(`${__dirname}/_docs/contents.json`);
 
-    //?in the case config is empty and this is teh first intialization 
-    if (config.data === {}) {
-        console.log("First time setting up? Awesome! Let's set upEven though we will set up right now, you can change everything later, so don't worry!");
+    //!in the case config is empty and this is teh first intialization 
+    if (config.data.empty === true) {
+        
+
+        console.log(`First time compiling your xBlog? Awesome! We're so happy to have you!\n
+                    xBlog is an easy to use, github pages oriented blog `);
         inquirer
-            .prompt([
-                "What is the name of your blog?",
-                "Sounds fascinating! Add navigation tags of this structure Matan's Home Page#https://matanshtepel.com/>Ishaan's Home Page#https://ishaandham.com/> "
+            .prompt([{
+                
             ])
             .then((answers) => {
                 console.log(answers);
@@ -39,15 +42,15 @@ const main = async () => {
                 if (error.isTtyError) {
                     console.error('Prompt couldn\'t be rendered in the current environment')
                 } else {
-                    console.error('Something else went wrong, plese try again!')
+                    console.error(error)
                 }
             });
 
     }
-
-
+    //! this should also happen on every compilation
     let objToAppend = {}
-    console.log(compiledFiles.data.contents.length);
+    //? we make sure to rewrite only the new blogs //! will have to undo becuase everything may be changed, idk if compilation will get slow,
+    //? later I could add compile-new option.   
     for (let i = config.data.posts.length; i < compiledFiles.data.contents.length - config.data.posts.length; i++) {
         //first add what you need, then ask the user questions 
         let objToAppend = {};

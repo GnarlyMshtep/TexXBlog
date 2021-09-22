@@ -20,8 +20,8 @@
     {
       "path": "banana.md",
       "url": "banana.html",
-      "content": "# Banana page \r\n\r\n```python \r\n    def banana(): \r\n        return \"banana\" \r\n```\r\n\r\n",
-      "html": "<h1 id=\"banana-page\">Banana page <a class=\"heading-anchor-permalink\" href=\"#banana-page\">#</a></h1>\n<pre><code class=\"language-python\">    def banana(): \n        return &quot;banana&quot; \n</code></pre>\n",
+      "content": "<!-- we will use this comment to store meta info\r\n{\r\n    \"Name\": \"This is the banana page.\" \r\n    \"Author\": \"Matan Shtepel\"\r\n    \"Tags\": [\"example\", \"relationship help\"]\r\n}\r\n-->\r\n\r\n\r\n# Banana page \r\n\r\n```python \r\n    def banana(): \r\n        return \"banana\" \r\n```\r\n\r\n",
+      "html": "<!-- we will use this comment to store meta info\n{\n    \"Name\": \"This is the banana page.\" \n    \"Author\": \"Matan Shtepel\"\n    \"Tags\": [\"example\", \"relationship help\"]\n}\n-->\n<h1 id=\"banana-page\">Banana page <a class=\"heading-anchor-permalink\" href=\"#banana-page\">#</a></h1>\n<pre><code class=\"language-python\">    def banana(): \n        return &quot;banana&quot; \n</code></pre>\n",
       "id": 1
     }
   ]

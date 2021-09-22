@@ -1,0 +1,64 @@
+1) add cool scroll to all files by defult https://codepen.io/GhostRider/pen/GHaFw
+2) compliation script
+4) offer center tag
+5) Have a routing feature that you can go to /basketball (let's say) and it has only basketball tags, and perhaps an option for a different title
+6) add a help option on script. 
+7) add footer to contain description of blog and link to our website
+8) filter open up downwords
+9) add math delimeters to the JSON file
+
+-- could add an in-page meta tag that contains the title and author; may be a 
+        cleaner solution. 
+-- enforce a size for all posts? 
+-- refactor so that we have a method called scroll element + scroll the page title
+
+I need an adjacent word to blog...  
+
+
+
+============================
+PROMPT DESIGN (compilation script)
+On first compilation: 
+    - say hello & explain how it will work (feel free to skip anything!) & link tutorial & more info & changes aren't permanent (no input)
+    - Ask for the name of the xBlog (string -- truncate starting and ending spaces) 
+    - Ask for the links <exampleSite,https://example-site.com>,<matanBlog,https://matanshtepel.com> -- but first see what input type string does
+    - Description of blog (?)
+
+On posts compilation: 
+    - Title (string)
+    - Author (string)
+    - Tags (list)
+~~background add
+    - date (UTC)
+    - Date_readable (string)
+    - filename
+    - id -- numPost (String (I think because the id's are strings)) 
+
+
+
+==============
+START MESSEGE
+xBlog is a fully frontend, GitHub-pages-oriented, minimum set-up necessary, blogging utility. 
+This script will ask you various set-up questions you may have not fully decided, but do not worry, everything can be changed!
+After the compilation is needed, your fascinating writing will be prepered to be displayed on the interenet!
+To learn more visit __repo_link__ or check out the tutorial videos at __Vidlink__
+
+Let's get started!
+
+First and foremost, what is the name of your blog? __ 
+
+There will be a navbar at the top of the page that can contain a few navbars, if you would like.
+If you would, input them (don't know list formatting yet)
+
+Lastly, add a one line description of your page. 
+
+
+===============
+USUAL PROMPT MESSEGE
+What is the title of filename? 
+
+Who is the author of filename? -- (autocomplete could be nice)
+
+Tags (list)
+
+/! major change: no more compilation script for new info, include at top of page!

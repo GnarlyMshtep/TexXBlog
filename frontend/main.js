@@ -190,7 +190,7 @@ const populateHeaderLinks = (links, headerLinksContainer) => {
  */
 
 const loadJSONData = async () => {
-    const rawJson = await fetch('config.json');
+    const rawJson = await fetch('../config.json');
     /*const reader = rawJson.arrayBuffer.body.getReader()
     console.log(reader);*/
     const jsonData = await rawJson.json();

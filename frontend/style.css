@@ -13,7 +13,7 @@
     --brown: rgb(199, 185, 180);
     --light-brown: rgba(228, 227, 227, 0.226);
     --green: rgb(156, 201, 156);
-    --sidebar-width: 15vw
+    --sidebar-width: 25vw
 }
 
 @media only screen and (min-width: 900px) {
