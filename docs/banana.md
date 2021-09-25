@@ -1,8 +1,8 @@
 <!-- we will use this comment to store meta info
 {
-    "Name": "This is the banana page." 
-    "Author": "Matan Shtepel"
-    "Tags": ["example", "relationship help"]
+    "title": "This is the banana page." ,
+    "author": "Matan Shtepel",
+    "tags": ["example", "relationship help"]
 }
 -->
 

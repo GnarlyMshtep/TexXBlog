@@ -201,12 +201,28 @@
         width: 3vw;
     }
 
-    .main {}
+    .main {
+        width: 70%;
+    }
 
     iframe {
         overflow-y: visible;
         width: 100%;
     }
+
+    footer {
+        display: block;
+        background-color: lightblue;
+        color: grey;
+        font-weight: 400;
+        width: 100%;
+        min-height: 10vh;
+        padding: 10px;
+        text-align: center;
+        margin-top: 3vh;
+        margin-left: -3vw;
+    }
+
 }
 
 /* ?Desktop and larger ends*/

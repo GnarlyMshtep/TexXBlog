@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "A slick-lookin' no-backend LaTeX-based blog!",
   "main": "index.js",
+  
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "docs": "markdown-folder-to-html"
@@ -25,6 +26,7 @@
     "edit-json-file": "^1.6.0",
     "inquirer": "^8.1.3",
     "live-server": "^1.2.1",
-    "markdown-folder-to-html": "^2.4.0"
+    "markdown-folder-to-html": "^2.4.0",
+    "node-fetch": "^3.0.0"
   }
 }

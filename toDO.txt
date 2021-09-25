@@ -1,11 +1,11 @@
-1) add cool scroll to all files by defult https://codepen.io/GhostRider/pen/GHaFw
-2) compliation script
+1) add cool scroll to entire page by defult https://codepen.io/GhostRider/pen/GHaFw
 4) offer center tag
 5) Have a routing feature that you can go to /basketball (let's say) and it has only basketball tags, and perhaps an option for a different title
-6) add a help option on script. 
-7) add footer to contain description of blog and link to our website
 8) filter open up downwords
-9) add math delimeters to the JSON file
+10) figure a more intutive scroll method
+11) display posts by latest
+12) mobile styling
+13) adjust main containers width when scrolling (always on a 100? content centered to width 80?)
 
 -- could add an in-page meta tag that contains the title and author; may be a 
         cleaner solution. 

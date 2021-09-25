@@ -5,10 +5,15 @@ const startFromOnSlideIntoScreen = 80
 
 const tagsMatch = (tags, filters) => {
     //console.log("hsbadjhasb", tags);
+    //console.log(filters);
+    if (!filters || filters.length === 0) { //no filters? everything goes!
+        return true;
+    }
+
     if (tags && filters) {
-        for (let i = 0; i < tags.length; i++) {
-            for (let i = 0; i < filters.length; i++) {
-                if (tags[i] === filters[i]) {
+        for (let i = 0; i < tags.length; i++) { //check if at least one tag matches one filter
+            for (let j = 0; j < filters.length; j++) {
+                if (tags[i] === filters[j]) {
                     console.log('i am included');
                     return true;
                 }
@@ -46,7 +51,7 @@ const createNavButtonHTML = (title, author, date, id) => {
     authorP.className = "article-button-author"
 
     let dateP = document.createElement("p");
-    dateP.innerText = date;
+    dateP.innerText = date.monthDayYear.toString().replaceAll(',', '/');
     dateP.className = "article-button-date"
 
     button.appendChild(titleP);

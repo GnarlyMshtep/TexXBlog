@@ -2,7 +2,7 @@ import utility from './utility.js'
 
 
 async function main() {
-    const filters = ["quantom mechanics"] //?dummy filter for now
+    const filters = [] //?dummy filter for now
     const jsonData = await loadJSONData(); //!start by loading JSON, we can do that concurrently with page load -- this is nice : )
 
 
@@ -24,6 +24,7 @@ async function main() {
 
         //nav content container for population
         const navContentContainer = document.querySelector('.nav-content-container');
+        console.log(jsonData.posts);
         populateNavbar(jsonData.posts, filters, navContentContainer);
 
         //fill in header links
@@ -31,8 +32,10 @@ async function main() {
         headerLinksContainer.innerHTML = "";
         populateHeaderLinks(jsonData.navLinks, headerLinksContainer)
 
-        document.querySelector('.h3-header').innerText = jsonData.title;
+        document.querySelector('.h3-header').innerText = jsonData.metaInfo.siteTitle;
 
+        //fill in description for footer
+        document.querySelector('.site-description').innerText = jsonData.metaInfo.shortDescription;
 
         //nav for scroll away
         const nav = document.querySelector('nav');
@@ -90,7 +93,7 @@ function scrollNavBar(headerWrapper, navToContentSeperator, isScrollOut, origina
     }
 
     if (isScrollOut) {
-        if (this.offsetWidth > 2.5) {
+        if (this.offsetWidth > 2) {
             temp = utility.sideBarWidth(originalWidth, currentCall, isScrollOut)
             this.style.width = temp + "px";
             navToContentSeperator.style.marginLeft = temp + "px"
@@ -142,23 +145,25 @@ function adjustFrameHeight(Iframe) {
  * @param {comes from json file} jsonData 
  * @param {the filte of the posts} filter 
  */
-const populateNavbar = async (posts, filter = [], navContentContainer) => {
+const populateNavbar = async (posts, filters = [], navContentContainer) => {
     // JSON loaded
     //then, empty the navbar. we onload so we can load the JSON before the entire file loads
     navContentContainer.innerHTML = "";
 
     let putUpArticles = false; //we need this know if we should place the empty messege
-    if (posts && posts.length > 0) {
-
+    if (posts) {
         for (let i = 0; i < posts.length; i++) {
             //!check the filter
-            if (utility.tagsMatch(posts[i].tags, filter)) {
+            if (utility.tagsMatch(posts[i].tags, filters)) {
                 putUpArticles = true
+                console.log(posts[i].title)
                 navContentContainer.appendChild(utility.createNavButtonHTML(posts[i].title, posts[i].author, posts[i].date, posts[i].id))
             }
 
         }
-    } else if (!putUpArticles || !posts) {
+
+    }
+    if (!putUpArticles || !posts) { //in case there were no posts matching the tags, we want to let the user know
         const noPostsP = document.createElement("p");
         noPostsP.className = "no-posts-p "
         noPostsP.innerText = "No posts avalabile with the applied filters. Try different filters!"
