@@ -20,7 +20,7 @@ const main = async () => {
     // later we want to add the option to compile only some files
     const config = require('./config.json'); //! what if no config
 
-    if (config = {} || config.empty) { // first time set up -- will be annoying to test every time
+    if (config === {} || config.empty) { // first time set up -- will be annoying to test every time
         config.posts = [] //we will need to make this array to append into it
 
         console.log(firstTimeMessage); //hello messge

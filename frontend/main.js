@@ -17,7 +17,7 @@ async function main() {
      * @abstract Make the injections from teh JSON file to make the page customizable + set up event listeners. 
      */
     function windowLoaded() {
-        loadLastBlogPost(jsonData)
+        loadLastBlogPost(jsonData);
 
         //fix Iframe height
         const Iframe = document.querySelector("Iframe");
@@ -39,6 +39,7 @@ async function main() {
         //fill in description for footer
         document.querySelector('.site-description').innerText = jsonData.metaInfo.shortDescription;
 
+        
         //nav for scroll away
         const nav = document.querySelector('nav');
         const originalNavWidth = nav.offsetWidth;
