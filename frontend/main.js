@@ -17,6 +17,8 @@ async function main() {
      * @abstract Make the injections from teh JSON file to make the page customizable + set up event listeners. 
      */
     function windowLoaded() {
+        loadLastBlogPost(jsonData)
+
         //fix Iframe height
         const Iframe = document.querySelector("Iframe");
         adjustFrameHeight(Iframe);
@@ -80,6 +82,11 @@ async function main() {
 
         );
     }
+}
+
+
+function loadLastBlogPost(jsonData) {
+    document.getElementById('Iframe').src = '../_docs/' + jsonData.posts[jsonData.posts.length - 1].filename
 }
 
 
