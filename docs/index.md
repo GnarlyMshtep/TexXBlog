@@ -3,7 +3,6 @@
     "author": "Cute girl with bangs",
     "tags": ["TrippingIndex", "toStokedIndex"]
 }-->
-
 # Index page 
 
 Here is an *important* index page
