@@ -9,11 +9,10 @@
 
 :root {
     --black: #141217ff;
-    --blue: #28587bff;
-    --brown: rgb(199, 185, 180);
-    --light-brown: rgba(228, 227, 227, 0.226);
-    --green: rgb(156, 201, 156);
-    --sidebar-width: 25vw
+    --light-black: #333333;
+    --light-white: #EEEEEE;
+    --space-gray: #888888;
+    --sidebar-width: 25vw;
 }
 
 @media only screen and (min-width: 900px) {
@@ -21,7 +20,7 @@
     /**header starts*/
     header {
         width: 100%;
-        background-color: var(--brown);
+        background-color: var(--light-black);
     }
 
     .in-header-content-container {
@@ -51,7 +50,7 @@
     }
 
     .header-link:hover {
-        color: var(--blue);
+        color: var(--space-gray);
     }
 
 
@@ -71,7 +70,7 @@
         position: fixed;
         top: 0px;
         left: -10px;
-        padding-top: 3vh;
+        padding-top: 1vh;
         padding-left: 10px;
         height: 100%;
     }
@@ -83,20 +82,20 @@
         height: 100%;
         overflow-y: hidden;
         overflow-x: hidden;
-        box-shadow: 0 0 0 5px var(--brown);
-        background-color: var(--light-brown);
+        box-shadow: 0 0 0 5px var(--light-black);
+        background-color: var(--light-white);
     }
 
     nav .nav-outer-container {
         z-index: 9;
-        margin-top: -17px;
+        margin-top: -10px;
         margin-left: 1px;
-        margin-bottom: 2vh;
+        margin-bottom: 1vh;
         /*padding: 5px;*/
     }
 
     .nav-button {
-        background-color: var(--green);
+        background-color: var(--space-gray);
         /* Green */
         border: none;
         border-radius: 3%;
@@ -114,18 +113,18 @@
     }
 
     .nav-button:hover {
-        color: var(--blue);
+        color: var(--light-black);
     }
 
     #filter-button {
         padding: 3vh 1.5vh 3vh 0;
-        font-weight: 700;
-        font-size: 2.5rem;
+        font-weight: 500;
+        font-size: 1.4rem;
         text-align: center;
     }
 
     .nav-content-container {
-        /*border-top: 10px solid var(--brown);*/
+        /*border-top: 10px solid var(--light-black);*/
 
     }
 
@@ -155,7 +154,7 @@
         font-weight: 500;
         padding: 10px;
         text-align: center;
-        color: var(--brown);
+        color: var(--light-black);
 
     }
 
@@ -163,7 +162,7 @@
         display: flex;
         flex-direction: column;
         height: 100%;
-        width: .5vw;
+        width: .6vw;
         margin-left: 5px;
         background-color: transparent;
     }
@@ -183,7 +182,7 @@
     }
 
     .clickaway-middle:hover {
-        background-color: var(--blue);
+        background-color: var(--light-black);
         cursor: pointer;
     }
 
@@ -212,7 +211,7 @@
 
     footer {
         display: block;
-        background-color: lightblue;
+        background-color: lightlight-gray;
         color: grey;
         font-weight: 400;
         width: 100%;

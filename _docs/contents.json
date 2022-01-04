@@ -26,6 +26,10 @@
     },
     {
       "type": "file",
+      "value": "hello.md"
+    },
+    {
+      "type": "file",
       "value": "ophirExample.md"
     }
   ],
@@ -73,11 +77,18 @@
       "id": 5
     },
     {
+      "path": "hello.md",
+      "url": "hello.html",
+      "content": "<!--{\r\n    \"title\": \"Hello Blog\" ,\r\n    \"author\": \"Ishaan\",\r\n    \"tags\": [\"what is a valid\", \"this is cool\", \"awesome\"]\r\n}-->\r\n# Test Blog\r\n**hello**\r\n$$ f(x) = x^2 $$\r\n",
+      "html": "<!--{\n    \"title\": \"Hello Blog\" ,\n    \"author\": \"Ishaan\",\n    \"tags\": [\"what is a valid\", \"this is cool\", \"awesome\"]\n}-->\n<h1 id=\"test-blog\">Test Blog <a class=\"heading-anchor-permalink\" href=\"#test-blog\">#</a></h1>\n<p><strong>hello</strong>\n$$ f(x) = x^2 $$</p>\n",
+      "id": 6
+    },
+    {
       "path": "ophirExample.md",
       "url": "ophirExample.html",
       "content": "<!-- we will use this comment to store meta info\r\n{\r\n    \"title\": \"A Day In the Life of Ophir\" ,\r\n    \"author\": \"Matan and Ophir\",\r\n    \"tags\": [\"cool stuff\", \"science!\",\"Jews!\", \"DND\"]\r\n}\r\n-->\r\n\r\n# A Day In the Life of Ophir\r\n**ophir is here he is cool**. $$f(x)=x^2$$ Ophir! Ophir! ",
       "html": "<!-- we will use this comment to store meta info\n{\n    \"title\": \"A Day In the Life of Ophir\" ,\n    \"author\": \"Matan and Ophir\",\n    \"tags\": [\"cool stuff\", \"science!\",\"Jews!\", \"DND\"]\n}\n-->\n<h1 id=\"a-day-in-the-life-of-ophir\">A Day In the Life of Ophir <a class=\"heading-anchor-permalink\" href=\"#a-day-in-the-life-of-ophir\">#</a></h1>\n<p><strong>ophir is here he is cool</strong>. $$f(x)=x^2$$ Ophir! Ophir!</p>\n",
-      "id": 6
+      "id": 7
     }
   ]
 }
