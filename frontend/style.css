@@ -8,10 +8,11 @@
 }
 
 :root {
-    --black: #141217ff;
-    --light-black: #333333;
-    --light-white: #EEEEEE;
-    --space-gray: #888888;
+    --nav-color: #1C364A;
+    --scrolltab-filling-color: #F2DECF;
+    --scrolltab-color: #33658A;
+    --text-color: white;
+    --scrollwheel-color: #50C9CE; 
     --sidebar-width: 25vw;
 }
 
@@ -20,7 +21,7 @@
     /**header starts*/
     header {
         width: 100%;
-        background-color: var(--light-black);
+        background-color: var(--nav-color);
     }
 
     .in-header-content-container {
@@ -30,7 +31,7 @@
 
     .h3-header {
         padding: 3vh 0 3vh 3vw;
-        color: white;
+        color: var(--text-color);
         display: inline-block;
     }
 
@@ -44,13 +45,13 @@
     .header-link {
         padding: 3vh .65vw 3vh .75vw;
         display: inline-block;
-        color: white;
+        color: var(--text-color);
         font-weight: 600;
         cursor: pointer;
     }
 
     .header-link:hover {
-        color: var(--space-gray);
+        color: var(--scrolltab-color);
     }
 
 
@@ -82,8 +83,8 @@
         height: 100%;
         overflow-y: hidden;
         overflow-x: hidden;
-        box-shadow: 0 0 0 5px var(--light-black);
-        background-color: var(--light-white);
+        box-shadow: 0 0 0 5px var(--nav-color);
+        background-color: var(--scrolltab-filling-color);
     }
 
     nav .nav-outer-container {
@@ -95,11 +96,11 @@
     }
 
     .nav-button {
-        background-color: var(--space-gray);
+        background-color: var(--scrolltab-color);
         /* Green */
         border: none;
         border-radius: 3%;
-        color: white;
+        color: var(--text-color);
 
 
         text-align: left;
@@ -113,7 +114,7 @@
     }
 
     .nav-button:hover {
-        color: var(--light-black);
+        color: var(--nav-color);
     }
 
     #filter-button {
@@ -124,7 +125,7 @@
     }
 
     .nav-content-container {
-        /*border-top: 10px solid var(--light-black);*/
+        /*border-top: 10px solid var(--nav-color);*/
 
     }
 
@@ -154,7 +155,7 @@
         font-weight: 500;
         padding: 10px;
         text-align: center;
-        color: var(--light-black);
+        color: var(--nav-color);
 
     }
 
@@ -182,7 +183,7 @@
     }
 
     .clickaway-middle:hover {
-        background-color: var(--light-black);
+        background-color: var(--nav-color);
         cursor: pointer;
     }
 
@@ -214,7 +215,7 @@
 
     footer {
         display: block;
-        background-color: lightlight-gray;
+        background-color: light-gray;
         color: grey;
         font-weight: 400;
         width: 100%;
@@ -259,6 +260,10 @@ nav::-webkit-scrollbar {
 
 ::-webkit-scrollbar-thumb {
     border-radius: 10px;
-    -webkit-box-shadow: inset 0 0 6px var(--space-gray);
-    background-color: #555;
+    -webkit-box-shadow: inset 0 0 6px var(--scrolltab-color);
+    background-color: var(--scrollwheel-color);
+}
+
+::-webkit-scrollbar:hover {
+    ;
 }

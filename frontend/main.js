@@ -23,6 +23,8 @@ async function main() {
         const Iframe = document.querySelector("Iframe");
         adjustFrameHeight(Iframe);
 
+        //fix the colors
+        fixColors(jsonData.colors);
 
         //nav content container for population
         const navContentContainer = document.querySelector('.nav-content-container');
@@ -142,16 +144,27 @@ function adjustFrameHeight(Iframe) {
     Iframe.style.width = "100%"
 }
 
-
+/**
+ * @param {json} colors taken from jsonData
+ */
+const fixColors = async (colors) => {
+    // Json loaded
+    if (colors) {
+        const r = document.querySelector(':root');
+        r.style.setProperty('--nav-color', colors.nav_color);
+        r.style.setProperty('--scrolltab-color', colors.scrolltab_color);
+        r.style.setProperty('--scrolltab-filling-color', colors.scrolltab_filling_color);
+        r.style.setProperty('--text-color', colors.text_color);
+        r.style.setProperty('--scrollwheel-color', colors.scrollwheel_color);
+    }
+}
 
 /**
  * @abstract populate the navbar with the appropriate articles
- */
-
-/**
+ *
  * 
- * @param {comes from json file} jsonData 
- * @param {the filte of the posts} filter 
+ * @param {json} posts Comes from jsonData
+ * @param {the filter of the posts} filter 
  */
 const populateNavbar = async (posts, filters = [], navContentContainer) => {
     // JSON loaded

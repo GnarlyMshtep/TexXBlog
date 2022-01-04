@@ -1,4 +1,4 @@
-1) add cool scroll to entire page by defult https://codepen.io/GhostRider/pen/GHaFw
+1) add cool scroll to entire page by defult https://codepen.io/GhostRider/pen/GHaFw - DONE
 4) offer center tag
 5) Have a routing feature that you can go to /basketball (let's say) and it has only basketball tags, and perhaps an option for a different title
 8) filter open up downwords
