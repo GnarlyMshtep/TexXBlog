@@ -97,11 +97,8 @@
 
     .nav-button {
         background-color: var(--scrolltab-color);
-        /* Green */
         border: none;
-        border-radius: 3%;
         color: var(--text-color);
-
 
         text-align: left;
         text-decoration: none;
@@ -109,8 +106,6 @@
         cursor: pointer;
         padding: 10px 1vw 15px 1vw;
         width: 105%;
-
-
     }
 
     .nav-button:hover {
@@ -118,10 +113,31 @@
     }
 
     #filter-button {
-        padding: 3vh 1.5vh 3vh 0;
+        padding: 3vh 1.5vh 2.5vh 0;
         font-weight: 500;
         font-size: 1.4rem;
         text-align: center;
+    }
+
+    #filter-button a {
+        color: var(--text-color);
+    }
+
+    #filter-button a:link {
+        text-decoration: none;
+    }
+      
+    #filter-button a:visited {
+        text-decoration: none;
+    }
+    
+    #filter-button a:hover {
+        color: var(--nav-color);
+        text-decoration: none;
+    }
+    
+    #filter-button a:active {
+        text-decoration: none;
     }
 
     .nav-content-container {
@@ -130,7 +146,7 @@
     }
 
     .article-button {
-        margin-bottom: .5vh;
+        margin-bottom: 2px;
         width: 105%;
     }
 
@@ -262,8 +278,4 @@ nav::-webkit-scrollbar {
     border-radius: 10px;
     -webkit-box-shadow: inset 0 0 6px var(--scrolltab-color);
     background-color: var(--scrollwheel-color);
-}
-
-::-webkit-scrollbar:hover {
-    ;
 }

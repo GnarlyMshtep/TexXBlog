@@ -34,8 +34,28 @@
             ]
         },
         {
-            "filename": "TomExample.html",
+            "filename": "Basics.html",
             "id": 1,
+            "date": {
+                "UTCDate": 22,
+                "dateString": "Wed Sep 22 2021 16:34:51 GMT-0700 (Pacific Daylight Time)",
+                "monthDayYear": [
+                    8,
+                    22,
+                    2021
+                ]
+            },
+            "title": "Golang Basics",
+            "author": "Ishaan Dham",
+            "tags": [
+                "Go",
+                "Golang",
+                "Programming Language"
+            ]
+        },
+        {
+            "filename": "TomExample.html",
+            "id": 2,
             "date": {
                 "UTCDate": 22,
                 "dateString": "Wed Sep 22 2021 16:34:51 GMT-0700 (Pacific Daylight Time)",
@@ -53,13 +73,13 @@
         },
         {
             "filename": "angel.html",
-            "id": 2,
+            "id": 3,
             "date": {
-                "UTCDate": 22,
-                "dateString": "Wed Sep 22 2021 16:34:51 GMT-0700 (Pacific Daylight Time)",
+                "UTCDate": 23,
+                "dateString": "Thu Sep 23 2021 10:44:38 GMT-0700 (Pacific Daylight Time)",
                 "monthDayYear": [
                     8,
-                    22,
+                    23,
                     2021
                 ]
             },
@@ -71,13 +91,13 @@
         },
         {
             "filename": "banana.html",
-            "id": 3,
+            "id": 4,
             "date": {
-                "UTCDate": 23,
-                "dateString": "Thu Sep 23 2021 10:44:38 GMT-0700 (Pacific Daylight Time)",
+                "UTCDate": 25,
+                "dateString": "Sat Sep 25 2021 16:14:09 GMT-0700 (Pacific Daylight Time)",
                 "monthDayYear": [
                     8,
-                    23,
+                    25,
                     2021
                 ]
             },
@@ -90,13 +110,13 @@
         },
         {
             "filename": "hannahExample.html",
-            "id": 4,
+            "id": 5,
             "date": {
-                "UTCDate": 25,
-                "dateString": "Sat Sep 25 2021 16:14:09 GMT-0700 (Pacific Daylight Time)",
+                "UTCDate": 26,
+                "dateString": "Sun Sep 26 2021 15:38:11 GMT-0700 (Pacific Daylight Time)",
                 "monthDayYear": [
                     8,
-                    25,
+                    26,
                     2021
                 ]
             },
@@ -108,13 +128,13 @@
         },
         {
             "filename": "heiku.html",
-            "id": 5,
+            "id": 6,
             "date": {
-                "UTCDate": 26,
-                "dateString": "Sun Sep 26 2021 15:38:11 GMT-0700 (Pacific Daylight Time)",
+                "UTCDate": 28,
+                "dateString": "Mon Sep 27 2021 22:40:06 GMT-0700 (Pacific Daylight Time)",
                 "monthDayYear": [
                     8,
-                    26,
+                    27,
                     2021
                 ]
             },
@@ -128,14 +148,14 @@
         },
         {
             "filename": "hello.html",
-            "id": 6,
+            "id": 7,
             "date": {
-                "UTCDate": 28,
-                "dateString": "Mon Sep 27 2021 22:40:06 GMT-0700 (Pacific Daylight Time)",
+                "UTCDate": 4,
+                "dateString": "Mon Jan 03 2022 17:11:48 GMT-0800 (Pacific Standard Time)",
                 "monthDayYear": [
-                    8,
-                    27,
-                    2021
+                    0,
+                    3,
+                    2022
                 ]
             },
             "title": "Hello Blog",
@@ -148,13 +168,13 @@
         },
         {
             "filename": "ophirExample.html",
-            "id": 7,
+            "id": 8,
             "date": {
                 "UTCDate": 4,
-                "dateString": "Mon Jan 03 2022 17:11:48 GMT-0800 (Pacific Standard Time)",
+                "dateString": "Tue Jan 04 2022 15:24:50 GMT-0800 (Pacific Standard Time)",
                 "monthDayYear": [
                     0,
-                    3,
+                    4,
                     2022
                 ]
             },
