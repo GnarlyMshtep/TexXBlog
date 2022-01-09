@@ -28,7 +28,6 @@ async function main() {
 
         //nav content container for population
         const navContentContainer = document.querySelector('.nav-content-container');
-        console.log(jsonData.posts);
         populateNavbar(jsonData.posts, filters, navContentContainer);
 
         //fill in header links
@@ -38,6 +37,8 @@ async function main() {
 
         document.querySelector('.h3-header').innerText = jsonData.metaInfo.siteTitle;
 
+        // change the title of page to siteTitle
+        document.querySelector('title').innerHTML = jsonData.metaInfo.siteTitle;
         //fill in description for footer
         document.querySelector('.site-description').innerText = jsonData.metaInfo.shortDescription;
 
@@ -61,7 +62,6 @@ async function main() {
         //for click on a different article, changes teh Iframe src
         navContentContainer.addEventListener('click', (clicked) => {
             if (clicked.path[1].id) {
-                console.log('at event listener func');
                 Iframe.src = "../_docs/" + jsonData.posts[clicked.path[1].id].filename;
                 Iframe.onload = () => {
                     adjustFrameHeight(Iframe);
@@ -171,13 +171,12 @@ const populateNavbar = async (posts, filters = [], navContentContainer) => {
     //then, empty the navbar. we onload so we can load the JSON before the entire file loads
     navContentContainer.innerHTML = "";
 
-    let putUpArticles = false; //we need this know if we should place the empty messege
+    let putUpArticles = false; //we need this know if we should place the empty message
     if (posts) {
         for (let i = 0; i < posts.length; i++) {
             //!check the filter
             if (utility.tagsMatch(posts[i].tags, filters)) {
                 putUpArticles = true
-                console.log(posts[i].title)
                 navContentContainer.appendChild(utility.createNavButtonHTML(posts[i].title, posts[i].author, posts[i].date, posts[i].id))
             }
 
@@ -222,7 +221,6 @@ const loadJSONData = async () => {
     const jsonData = await rawJson.json();
     return jsonData
 }
-
 
 main();
 //!always handle events last

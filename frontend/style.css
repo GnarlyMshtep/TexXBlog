@@ -83,7 +83,7 @@
         height: 100%;
         overflow-y: hidden;
         overflow-x: hidden;
-        box-shadow: 0 0 0 5px var(--nav-color);
+        box-shadow: 0 0 0 4px var(--nav-color);
         background-color: var(--scrolltab-filling-color);
     }
 
@@ -119,25 +119,56 @@
         text-align: center;
     }
 
-    #filter-button a {
-        color: var(--text-color);
+    #filter-container {
+        position: fixed;
+        background-color: var(--scrolltab-filling-color);
+        box-shadow: 2px 5px #888888;
+        bottom: 50%;
+        top: 20%;
+        left: 35%;
+        z-index: 10;
+        border: 2px solid var(--nav-color);
+        width: 600px;
+        height: 400px;
+        padding: 15px;
     }
 
-    #filter-button a:link {
-        text-decoration: none;
+    .hide {
+        opacity: 0;
+        display: none;
+        transition: opacity 0.5s linear;
+        -webkit-transition: opacity 0.5s linear;
+        -moz-transition: opacity 0.5s linear;
+        -o-transition: opacity 0.5s linear;
+    }
+
+    .show {
+        opacity: 0.9;
+        display: block;
+        transition: opacity 0.5s linear;
+        -webkit-transition: opacity 0.5s linear;
+        -moz-transition: opacity 0.5s linear;
+        -o-transition: opacity 0.5s linear;
     }
       
-    #filter-button a:visited {
-        text-decoration: none;
+
+    #filter-search-bar {
+        width: 95%;
+        padding: 2%;
+        margin: 2%;
+        border: 1px solid var(--nav-color);
+        border-radius: 10px;
     }
-    
-    #filter-button a:hover {
-        color: var(--nav-color);
-        text-decoration: none;
-    }
-    
-    #filter-button a:active {
-        text-decoration: none;
+  
+    @keyframes filter-transition {
+        from {
+            opacity: 0;
+            opacity: 1;
+        }
+        to {
+            opacity: 1;
+            opacity: 0;
+        }
     }
 
     .nav-content-container {
@@ -278,4 +309,34 @@ nav::-webkit-scrollbar {
     border-radius: 10px;
     -webkit-box-shadow: inset 0 0 6px var(--scrolltab-color);
     background-color: var(--scrollwheel-color);
+}
+
+#tags-list li{
+    color: var(--text-color);
+    width: 100px;
+    height: 27px;
+    padding: 2px 2px;
+    display: inline-block;
+    border: 1px solid #ddd;
+    margin: 5px;
+    font-size: 14px;
+    font-weight: 500;
+    position: relative;
+    background-color: var(--scrolltab-color);
+}
+
+#tags-list li:hover {
+    background-color: var(--nav-color);
+}
+
+#tags-list li span {
+    position: absolute;
+    width: 10px;
+    top: 10%;
+    right: 1%;
+}
+
+#tags-list li span:hover {
+    cursor: pointer;
+    background: var(--nav-color);
 }

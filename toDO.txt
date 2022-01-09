@@ -1,10 +1,11 @@
 1) add cool scroll to entire page by defult https://codepen.io/GhostRider/pen/GHaFw - DONE
+2) Change title of page to the blog's title (found in config.json) - DONE
 4) offer center tag
 5) Have a routing feature that you can go to /basketball (let's say) and it has only basketball tags, and perhaps an option for a different title
 8) filter open up downwords
 10) figure a more intutive scroll method
 11) display posts by latest
-12) mobile styling
+12) mobile styling - : ( just get a laptop plz
 13) adjust main containers width when scrolling (always on a 100? content centered to width 80?)
 
 -- could add an in-page meta tag that contains the title and author; may be a 
