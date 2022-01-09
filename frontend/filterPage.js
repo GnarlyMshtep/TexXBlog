@@ -1,3 +1,13 @@
+
+// Variable that stores the users keywords.
+//! Store this as a session cookie?
+var keyWords = [];
+// variable that stores array of posts
+var posts = [];
+/** 
+* Function that is used to toggle the display of the filter container.
+*
+* */
 function filterButtonToggle() {
     filterContainer = document.getElementById("filter-container");
     if (filterContainer.className == "hide") {
@@ -8,10 +18,11 @@ function filterButtonToggle() {
     }
 }
 
-// Variable that stores the users keywords.
-//! Store this as a session cookie?
-var keyWords = [];
-
+/**
+ * Adds the new keyword to KEYWORDS and re-populated the filter-container
+ * using populateFilterTags()
+ * 
+ * */
 function updateKeywords() {
     let text = document.getElementById('filter-search-bar').value
     if (text != "") {
@@ -27,6 +38,9 @@ function updateKeywords() {
     document.getElementById('filter-search-bar').value = "";
 }
 
+/**
+ * Populates div "tags-list" with all the tags in KEYWORDS.
+ */
 function populateFilterTags() {
     // remove all the tags
     document.getElementById("tags-list").innerHTML = ""
@@ -39,6 +53,7 @@ function populateFilterTags() {
         let tagNode = document.createTextNode(tag.substring(0, 11).toLowerCase());
         let span = document.createElement('span');
         span.innerHTML = "&times";
+        // Onclick function deletes the keyword and re-populates the tags.
         span.onclick = () => {
             let index = keyWords.indexOf(tag);
             if (index != -1) {
@@ -51,4 +66,15 @@ function populateFilterTags() {
         node.appendChild(span);
         list.appendChild(node);
     })
+}
+
+
+/**
+ * This function creates a array of blog id's based on the fiters.
+ * @param {array of (id, tag) for each post} postsAndIds
+ * @returns array of id's
+ */
+const populateNavbar2 = async (posts, postAndIds) => {
+    console.log("posts:", posts);
+    console.log("postsAfterFilter", postAndIds);
 }

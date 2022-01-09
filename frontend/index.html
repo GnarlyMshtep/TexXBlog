@@ -25,12 +25,15 @@
     <div class="page-container">
         <div id="filter-container" class="hide">
             <form onsubmit="updateKeywords();return false">
-                <input id="filter-search-bar" placeholder="Filter blogs with keywords" name="search" type="text">
+                <input id="filter-search-bar" placeholder="Filter blogs with keywords (author, title, topics etc.)" name="search" type="text">
             </form>
             <!-- <input id="filter-search-btn" type="submit" onsubmit="updateKeywords()" style="display:none"> -->
             <div class="filter-tags">
               <ul id="tags-list">
               </ul>
+            </div>
+            <div>
+                <button id="filter-apply-btn">APPLY</button>
             </div>
         </div>
         <div class="nav-fixed-wrapper">

@@ -340,3 +340,18 @@ nav::-webkit-scrollbar {
     cursor: pointer;
     background: var(--nav-color);
 }
+
+#filter-apply-btn {
+    color: var(--text-color);
+    background-color: var(--nav-color);
+    font-weight: 500;
+    width: 100px;
+    height: 40px;
+    position: absolute;
+    bottom: 2%;
+    left: 42%;
+}
+
+#filter-apply-btn:hover {
+    background-color: var(--scrolltab-color);
+}

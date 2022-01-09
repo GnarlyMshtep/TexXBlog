@@ -1,8 +1,7 @@
 import utility from './utility.js'
-
+import filterPage from './filterPage'
 
 async function main() {
-    const filters = [] //?dummy filter for now
     const jsonData = await loadJSONData(); //!start by loading JSON, we can do that concurrently with page load -- this is nice : )
 
 
@@ -22,6 +21,10 @@ async function main() {
         //fix Iframe height
         const Iframe = document.querySelector("Iframe");
         adjustFrameHeight(Iframe);
+
+        // create array of posts and id's (used in filter process)
+        const postsAndIds = createArrayOfPostsAndId(json.posts);
+        populateNavbar2(json.posts, postsAndIds);
 
         //fix the colors
         fixColors(jsonData.colors);
@@ -59,7 +62,7 @@ async function main() {
 
         //!attach event listeners
 
-        //for click on a different article, changes teh Iframe src
+        //for click on a different article, changes the Iframe src
         navContentContainer.addEventListener('click', (clicked) => {
             if (clicked.path[1].id) {
                 Iframe.src = "../_docs/" + jsonData.posts[clicked.path[1].id].filename;
@@ -199,6 +202,26 @@ const populateHeaderLinks = (links, headerLinksContainer) => {
     }
 }
 
+/**
+ * 
+ * @param {array of posts} posts 
+ * @returns {array of (id, tag) for each post}
+ */
+const createArrayOfPostsAndId = async (posts) => {
+    let arrayOfPostsAndIds = [];
+    posts.forEach((post) => {
+        arrayOfPostsAndIds.push([post.title, post.id]) // [title, id]
+        arrayOfPostsAndIds.push([post.author, post.id]) // [author, id]
+        post.tags.forEach((tag) => {
+            arrayOfPostsAndIds.push([tag, post.id]) // [tag, id]
+        })
+    })
+    // sort lexicographically
+    arrayOfPostsAndIds.sort((a, b) => {
+        return a[0] < b[0];
+    })
+    return arrayOfPostsAndIds;
+}
 
 
 /**
