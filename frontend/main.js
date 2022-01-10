@@ -1,7 +1,11 @@
 import utility from './utility.js'
-import filterPage from './filterPage'
+
+// window variables 
+window.postsAndIds = [];
+window.posts = [];
 
 async function main() {
+    const filters = [];
     const jsonData = await loadJSONData(); //!start by loading JSON, we can do that concurrently with page load -- this is nice : )
 
 
@@ -22,9 +26,8 @@ async function main() {
         const Iframe = document.querySelector("Iframe");
         adjustFrameHeight(Iframe);
 
-        // create array of posts and id's (used in filter process)
-        const postsAndIds = createArrayOfPostsAndId(json.posts);
-        populateNavbar2(json.posts, postsAndIds);
+        // create global variable array of posts (used in filter process)
+        window.posts = jsonData.posts;
 
         //fix the colors
         fixColors(jsonData.colors);
@@ -36,7 +39,7 @@ async function main() {
         //fill in header links
         const headerLinksContainer = document.querySelector('.header-links');
         headerLinksContainer.innerHTML = "";
-        populateHeaderLinks(jsonData.navLinks, headerLinksContainer)
+        populateHeaderLinks(jsonData.metaInfo.navLinks, headerLinksContainer)
 
         document.querySelector('.h3-header').innerText = jsonData.metaInfo.siteTitle;
 
@@ -81,7 +84,7 @@ async function main() {
                     clickAwayMiddle.mOnScreen = !clickAwayMiddle.mOnScreen
                     window.requestAnimationFrame(scrollNavBar.bind(nav, headerWrapper, navToContentSeperator, false, originalNavWidth));
                 } else {
-                    alert('error occured line 164')
+                    alert('error occurred line 164')
                 }
 
             }
@@ -189,7 +192,7 @@ const populateNavbar = async (posts, filters = [], navContentContainer) => {
     if (!putUpArticles || !posts) { //in case there were no posts matching the tags, we want to let the user know
         const noPostsP = document.createElement("p");
         noPostsP.className = "no-posts-p "
-        noPostsP.innerText = "No posts avalabile with the applied filters. Try different filters!"
+        noPostsP.innerText = "No posts available with the applied filters. Try different filters!"
         navContentContainer.appendChild(noPostsP)
     }
 
@@ -201,28 +204,6 @@ const populateHeaderLinks = (links, headerLinksContainer) => {
         }
     }
 }
-
-/**
- * 
- * @param {array of posts} posts 
- * @returns {array of (id, tag) for each post}
- */
-const createArrayOfPostsAndId = async (posts) => {
-    let arrayOfPostsAndIds = [];
-    posts.forEach((post) => {
-        arrayOfPostsAndIds.push([post.title, post.id]) // [title, id]
-        arrayOfPostsAndIds.push([post.author, post.id]) // [author, id]
-        post.tags.forEach((tag) => {
-            arrayOfPostsAndIds.push([tag, post.id]) // [tag, id]
-        })
-    })
-    // sort lexicographically
-    arrayOfPostsAndIds.sort((a, b) => {
-        return a[0] < b[0];
-    })
-    return arrayOfPostsAndIds;
-}
-
 
 /**
  * 

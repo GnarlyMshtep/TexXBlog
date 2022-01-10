@@ -27,13 +27,16 @@
             <form onsubmit="updateKeywords();return false">
                 <input id="filter-search-bar" placeholder="Filter blogs with keywords (author, title, topics etc.)" name="search" type="text">
             </form>
-            <!-- <input id="filter-search-btn" type="submit" onsubmit="updateKeywords()" style="display:none"> -->
+    
             <div class="filter-tags">
               <ul id="tags-list">
               </ul>
             </div>
             <div>
-                <button id="filter-apply-btn">APPLY</button>
+                <button id="filter-apply-btn" onclick="populateNavbar2()">
+                    APPLY
+                </button>
+                <button id="filter-container-close-btn" onclick="filterButtonToggle()">X</button>
             </div>
         </div>
         <div class="nav-fixed-wrapper">
@@ -56,7 +59,7 @@
 
         <div class="nav-to-content-seperator"></div>
         <div class="main">
-            <iframe id="Iframe" frameborder="0" scrolling="no" src="../_docs/index.html"></iframe>
+            <iframe id="Iframe" frameborder="0" scrolling="no" src=""></iframe>
             <footer>
                 <div class="site-description"></div>
                 <p>Created with <a style="color:brown;" href="https://github.com/GnarlyMshtep/TexXBlog">xBlog</a>!</p>

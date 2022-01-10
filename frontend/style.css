@@ -90,9 +90,7 @@
     nav .nav-outer-container {
         z-index: 9;
         margin-top: -10px;
-        margin-left: 1px;
         margin-bottom: 1vh;
-        /*padding: 5px;*/
     }
 
     .nav-button {
@@ -150,7 +148,40 @@
         -moz-transition: opacity 0.5s linear;
         -o-transition: opacity 0.5s linear;
     }
-      
+
+    
+    #filter-apply-btn {
+        color: var(--text-color);
+        background-color: var(--nav-color);
+        font-weight: 500;
+        width: 100px;
+        height: 40px;
+        position: absolute;
+        bottom: 2%;
+        left: 42%;
+    }
+
+    #filter-apply-btn:hover {
+        background-color: var(--scrolltab-color);
+    }
+    
+    #filter-container-close-btn {
+        position: absolute;
+        top: 0;
+        right: 0;
+        transform: translate(10px, -15px);
+        border-radius: 20px;
+        width: 30px;
+        height: 30px;
+        border: 2px solid var(--nav-color);
+        color: black;
+        font-size: 12px;
+        font-weight: 800;
+    }
+
+    #filter-container-close-btn:hover {
+        background-color: var(--scrolltab-color);
+    }
 
     #filter-search-bar {
         width: 95%;
@@ -339,19 +370,4 @@ nav::-webkit-scrollbar {
 #tags-list li span:hover {
     cursor: pointer;
     background: var(--nav-color);
-}
-
-#filter-apply-btn {
-    color: var(--text-color);
-    background-color: var(--nav-color);
-    font-weight: 500;
-    width: 100px;
-    height: 40px;
-    position: absolute;
-    bottom: 2%;
-    left: 42%;
-}
-
-#filter-apply-btn:hover {
-    background-color: var(--scrolltab-color);
 }
