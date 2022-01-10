@@ -1,7 +1,6 @@
 import utility from './utility.js'
 
 // window variables 
-window.postsAndIds = [];
 window.posts = [];
 
 async function main() {
