@@ -66,8 +66,9 @@ async function main() {
 
         //for click on a different article, changes the Iframe src
         navContentContainer.addEventListener('click', (clicked) => {
-            if (clicked.path[1].id) {
-                Iframe.src = "../_docs/" + jsonData.posts[clicked.path[1].id].filename;
+            var _path = clicked.path || (clicked.composedPath && clicked.composedPath());
+            if (_path[1].id) {
+                Iframe.src = "../_docs/" + jsonData.posts[_path[1].id].filename;
                 Iframe.onload = () => {
                     adjustFrameHeight(Iframe);
                 }
