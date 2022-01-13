@@ -30,7 +30,7 @@
     }
 
     .h3-header {
-        padding: 3vh 0 3vh 3vw;
+        padding: 2vh 0 2vh 2vw;
         color: var(--text-color);
         display: inline-block;
     }
@@ -43,7 +43,7 @@
     }
 
     .header-link {
-        padding: 3vh .65vw 3vh .75vw;
+        padding: 2vh .65vw 2vh .75vw;
         display: inline-block;
         color: var(--text-color);
         font-weight: 600;
@@ -111,9 +111,9 @@
     }
 
     #filter-button {
-        padding: 3vh 1.5vh 2.5vh 0;
-        font-weight: 500;
-        font-size: 1.4rem;
+        padding: 2vh 1.5vh 1.5vh 0;
+        font-weight: 500;;
+        font-size: 1.2rem;
         text-align: center;
     }
 

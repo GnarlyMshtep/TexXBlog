@@ -12,8 +12,8 @@ const NUM_KEYWORDS = 30
  * Function obtains the json data from config.json and set's up the entire page.
  */
 async function main() {
-    const filters = [];
-    const jsonData = await loadJSONData(); //!start by loading JSON, we can do that concurrently with page load -- this is nice : )
+    // Start by loading JSON, we can do that concurrently with page load.
+    const jsonData = await loadJSONData();
 
 
     // create an event listener for the loaded function (had a problem that sometime the window would be loaded before we got here)
@@ -27,12 +27,10 @@ async function main() {
      * Make injections from the JSON file to make the page customizable + set up event listeners. 
      */
     function windowLoaded() {
-        // read query string and update filters
-        readQueryString();
-
+        // load the latest post
         loadLastBlogPost(jsonData);
 
-        //fix Iframe height
+        // fix Iframe height
         const Iframe = document.querySelector("Iframe");
         adjustFrameHeight(Iframe);
 
@@ -42,10 +40,13 @@ async function main() {
         //fix the colors
         fixColors(jsonData.colors);
 
-        //nav content container for population
-        populateNavbar(jsonData.posts);
+        // Get filters form query string
+        readQueryString()
 
-        //fill in header links
+        // Populate the navbar with posts
+        filterPosts()
+
+        // fill in header links
         const headerLinksContainer = document.querySelector('.header-links');
         headerLinksContainer.innerHTML = "";
         populateHeaderLinks(jsonData.metaInfo.navLinks, headerLinksContainer)
@@ -105,7 +106,6 @@ async function main() {
     }
 }
 
-//! Remove this function.
 /**
  * Function loads the latest blog in the iframe.
  */
@@ -113,11 +113,18 @@ function loadLastBlogPost(jsonData) {
     document.getElementById('Iframe').src = '../_docs/' + jsonData.posts[jsonData.posts.length - 1].filename
 }
 
-
-//Is scroll Out of screen (not in ) //!move to utility
-//?!I'm ugly! please refactor me :)
+/**
+ * Function manages scroll.
+ * @param {*} headerWrapper 
+ * @param {*} navToContentSeperator 
+ * @param {*} isScrollOut 
+ * @param {*} originalWidth 
+ * @param {*} timestamp 
+ * @param {*} currentCall 
+ */
+// Is scroll Out of screen (not in ) 
+//! Refactor.
 function scrollNavBar(headerWrapper, navToContentSeperator, isScrollOut, originalWidth, timestamp, currentCall) {
-
     let temp = 0
     if (!currentCall) {
         currentCall = 0;
@@ -162,7 +169,6 @@ function adjustFrameHeight(Iframe) {
  * @param {json} colors taken from jsonData
  */
 const fixColors = (colors) => {
-    // Json loaded
     if (colors) {
         const r = document.querySelector(':root');
         r.style.setProperty('--nav-color', colors.nav_color);
@@ -218,29 +224,31 @@ const populateHeaderLinks = (links, headerLinksContainer) => {
 }
 
 /**
- * Function reads the query string and updates the filter tags. 
+ * Function reads the query string and updates the 
+ * keyWords array and filter keywords UI.
  */
 const readQueryString = () => {
     const params = new URLSearchParams(window.location.search);
-    console.log(params)
     // checks for valid value of query string param "filter"
-    function isValidWord(filterWords) {
-        return true
+    function isValidWord(word) {
+        const arr = word.match(/^[\w !-]*$/)
+        return arr != null
     }
     if (params.has('filter')) {
-       const wordsStr = params.get('filter')
-       const words = wordsStr.split(':')
-       // add words to filter
+        const wordsStr = params.get('filter')
+        const words = wordsStr.split(':')
+        // add words to filter
         for (const word of words) {
             if (isValidWord(word)) {
-                
+                if (keyWords.length <= NUM_KEYWORDS) {
+                    keyWords.push(word.toLowerCase())
+                } else {
+                    alert("No more keywords can be added")
+                }
             }
         }
-       // apply the keywords in filter
-
-    }
-    for (const param of params) {
-        console.log(param)
+        // apply the keywords in filter
+        populateFilterTags()
     }
 }
 
@@ -395,8 +403,7 @@ function populateFilterTags() {
 
 /**
  * Function that filters the posts using keywords and updates the blogs in 
- * navbar by calling populateNavbar 
- * of the filters posts
+ * navbar by calling func populateNavbar.
  * @returns Set()
  */
 const filterPosts = () => {
