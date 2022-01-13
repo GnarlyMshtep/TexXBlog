@@ -180,7 +180,8 @@ const fixColors = (colors) => {
 }
 
 /**
- * Populate the navbar with the appropriate articles
+ * Populate the navbar with the appropriate articles, and 
+ * change the query string in url. 
  *
  * @param {json} posts Comes from jsonData
  * @param {String[]} filter the filter of the posts
@@ -208,6 +209,17 @@ const populateNavbar = (posts, filter = null) => {
         navContentContainer.appendChild(noPostsP)
     }
 
+    // change the query string
+    let queryString = ""
+    for (word of keyWords) {
+        queryString += word + ":"
+    }
+    queryString = queryString.slice(0, queryString.length - 1)
+    queryString = queryString != "" ? "?filter=" + queryString : queryString
+    if (history.pushState) {
+        let newUrl = window.location.origin + queryString
+        window.history.pushState({path:newUrl}, '', newUrl)
+    }
 }
 
 /**
