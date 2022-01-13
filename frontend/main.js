@@ -19,6 +19,9 @@ async function main() {
      * @abstract Make the injections from teh JSON file to make the page customizable + set up event listeners. 
      */
     function windowLoaded() {
+        // read query string and update filters
+        readQueryString();
+
         loadLastBlogPost(jsonData);
 
         //fix Iframe height
@@ -202,6 +205,33 @@ const populateHeaderLinks = (links, headerLinksContainer) => {
         for (let i = 0; i < links.length; i++) {
             headerLinksContainer.appendChild(utility.createNavLinkButtonHTML(links[i]))
         }
+    }
+}
+
+/**
+ * Function reads the query string and updates the filter tags. 
+ */
+const readQueryString = () => {
+    const params = new URLSearchParams(window.location.search);
+    console.log(params)
+    // checks for valid value of query string param "filter"
+    function isValidWord(filterWords) {
+        return true
+    }
+    if (params.has('filter')) {
+       const wordsStr = params.get('filter')
+       const words = wordsStr.split(':')
+       // add words to filter
+        for (const word of words) {
+            if (isValidWord(word)) {
+                
+            }
+        }
+       // apply the keywords in filter
+
+    }
+    for (const param of params) {
+        console.log(param)
     }
 }
 
