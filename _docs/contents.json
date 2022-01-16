@@ -11,6 +11,10 @@
     {
       "type": "file",
       "value": "file2.md"
+    },
+    {
+      "type": "file",
+      "value": "newblog.md"
     }
   ],
   "contents": [
@@ -34,6 +38,13 @@
       "content": "<!--{\r\n    \"title\": \"File2\" ,\r\n    \"author\": \"Matan\",\r\n    \"tags\": [\"eagle\", \"Go\", \"sparrow\", \"pigeon\"]\r\n}-->\r\n\r\n# File1 Title\r\n\r\n``` bash\r\nsudo rm -r *\r\n```\r\n",
       "html": "<!--{\n    \"title\": \"File2\" ,\n    \"author\": \"Matan\",\n    \"tags\": [\"eagle\", \"Go\", \"sparrow\", \"pigeon\"]\n}-->\n<h1 id=\"file1-title\">File1 Title <a class=\"heading-anchor-permalink\" href=\"#file1-title\">#</a></h1>\n<pre><code class=\"language-bash\">sudo rm -r *\n</code></pre>\n",
       "id": 2
+    },
+    {
+      "path": "newblog.md",
+      "url": "newblog.html",
+      "content": "<!-- we will use this comment to store meta info\r\n{\r\n    \"title\": \"Some analysis\" ,\r\n    \"author\": \"Matan\",\r\n    \"tags\": [\"Analysis\", \"topology\"]\r\n}\r\n-->\r\n\r\nI claim that yes! there does exist such a function (which was not actually my first intuition). Here is the construction: \r\n\\begin{itemize}\r\n    \\item Let all $f(q) =0$ for all $q\\in{}(-\\sqrt{2},\\sqrt{2})$\r\n    \\item Let $f(q)=i\\in{}$\\ints$^+$ for all $q\\in{}(i*\\sqrt{2},(i+1)*\\sqrt{2})$\r\n    \\item Let $f(q)=i\\in{}$\\ints$^-$ for all $q\\in{}((i+1)*\\sqrt{2},i*\\sqrt{2})$\r\n\\end{itemize}\r\n\r\nClearly this function is from \\rats{} to \\ints{} and is also clearly onto. Let us prove cont. using the sequencial defn. Let \\seq{q}$\\subseteq $\\rats{} be a convergent sequence, converging to $q$. $q$ is in one of the invtervals we set up, since those intervals cover all of $q$. Moreover, it's in only on interval, since the intervals are disjoint. WLOG, assume $q\\in{}((i*\\sqrt{2},(i+1)*\\sqrt{2})$ for some $i\\in{}\\mathbb{Z}^+$. \r\n\r\nThen, take $\\rho=\\mathrm{min}\\{|q-i*\\sqrt{2}|,|(i+1)*\\sqrt{2}|\\}$. Due to the convergence of \\seq{q}, we can find $N$ s.t for $n>N$ $|q_n-q|<\\rho$. Then let $\\epsilon>0$ be given arbitarly and let $\\delta=\\rho$. It is satisfied that $0=|f(q_n)-f(q)|<\\epsilon$ for all $|q_n-q|<\\rho{}$. Thus, $f$ is cont. and the proof is complete.",
+      "html": "<!-- we will use this comment to store meta info\n{\n    \"title\": \"Some analysis\" ,\n    \"author\": \"Matan\",\n    \"tags\": [\"Analysis\", \"topology\"]\n}\n-->\n<p>I claim that yes! there does exist such a function (which was not actually my first intuition). Here is the construction:\n\\begin{itemize}\n\\item Let all $f(q) =0$ for all $q\\in{}(-\\sqrt{2},\\sqrt{2})$\n\\item Let $f(q)=i\\in{}$\\ints$^+$ for all $q\\in{}(i*\\sqrt{2},(i+1)<em>\\sqrt{2})$\n\\item Let $f(q)=i\\in{}$\\ints$^-$ for all $q\\in{}((i+1)</em>\\sqrt{2},i*\\sqrt{2})$\n\\end{itemize}</p>\n<p>Clearly this function is from \\rats{} to \\ints{} and is also clearly onto. Let us prove cont. using the sequencial defn. Let \\seq{q}$\\subseteq $\\rats{} be a convergent sequence, converging to $q$. $q$ is in one of the invtervals we set up, since those intervals cover all of $q$. Moreover, it’s in only on interval, since the intervals are disjoint. WLOG, assume $q\\in{}((i*\\sqrt{2},(i+1)*\\sqrt{2})$ for some $i\\in{}\\mathbb{Z}^+$.</p>\n<p>Then, take $\\rho=\\mathrm{min}{|q-i*\\sqrt{2}|,|(i+1)*\\sqrt{2}|}$. Due to the convergence of \\seq{q}, we can find $N$ s.t for $n&gt;N$ $|q_n-q|&lt;\\rho$. Then let $\\epsilon&gt;0$ be given arbitarly and let $\\delta=\\rho$. It is satisfied that $0=|f(q_n)-f(q)|&lt;\\epsilon$ for all $|q_n-q|&lt;\\rho{}$. Thus, $f$ is cont. and the proof is complete.</p>\n",
+      "id": 3
     }
   ]
 }

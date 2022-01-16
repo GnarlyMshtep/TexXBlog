@@ -1,12 +1,24 @@
-1) add cool scroll to entire page by defult https://codepen.io/GhostRider/pen/GHaFw - DONE
-2) Change title of page to the blog's title (found in config.json) - DONE
-4) offer center tag
-5) Have a routing feature that you can go to /basketball (let's say) and it has only basketball tags, and perhaps an option for a different title
-8) filter open up downwords
-10) figure a more intutive scroll method
-11) display posts by latest
-12) mobile styling - : ( just get a laptop plz
-13) adjust main containers width when scrolling (always on a 100? content centered to width 80?)
+NEW: 
+    1) have all tags be case-insensative. That is, when loading them into db put them lower case and every query should also be made lower case
+    2) when clicking filter 
+    3) have the footer at the bottom of the page even if the content doesn't reach the bottom of the page + create a little dotted sperator or something to sperate t from teh doc (may not be necessery)
+    4) Date currently always loads on 0th of month, why? -- fix that
+    5) filter should auto-target the textbox 
+    6) everything that is clicky should have css "cursor:pointer;" (in filter box -- that looks really nice) -- are the colors tied to the user's selection somehow? they should be 
+    7) filter should show soem options suggested by the user
+    8) seperate the config into different jsons to make it more editable 
+    9) displaty tags on side boxes
+    10) have the filter box autocomplete 
+    11) allow user to set their page margins (some people may prefer narrower)
+    12) allow favicon upload. 
+    13) have optional head tagline 
+
+OLD:
+    5) Have a routing feature that you can go to /basketball (let's say) and it has only basketball tags, and perhaps an option for a different title
+    11) display posts by latest
+    12) MOBILE STYLING - : ( just get a laptop plz ahahah -- sike we'll have to do This
+
+
 
 -- could add an in-page meta tag that contains the title and author; may be a 
         cleaner solution. 
