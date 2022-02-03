@@ -3,8 +3,8 @@ NEW:
     2) when clicking filter 
     3) have the footer at the bottom of the page even if the content doesn't reach the bottom of the page + create a little dotted sperator or something to sperate t from teh doc (may not be necessery)
     4) Date currently always loads on 0th of month, why? -- fix that
-    5) filter should auto-target the textbox 
-    6) everything that is clicky should have css "cursor:pointer;" (in filter box -- that looks really nice) -- are the colors tied to the user's selection somehow? they should be 
+    5) DONE - filter should auto-target the textbox 
+    6) DONE - everything that is clicky should have css "cursor:pointer;" (in filter box -- that looks really nice) -- are the colors tied to the user's selection somehow? they should be 
     7) filter should show soem options suggested by the user
     8) seperate the config into different jsons to make it more editable 
     9) displaty tags on side boxes

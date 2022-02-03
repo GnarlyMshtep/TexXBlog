@@ -357,6 +357,7 @@ function filterButtonToggle() {
     filterContainer = document.getElementById("filter-container");
     if (filterContainer.className == "hide") {
         filterContainer.className = "show"
+        document.getElementById("filter-search-bar").focus();
     }
     else {
         filterContainer.className = "hide"

@@ -4,8 +4,10 @@
     "tags": ["eagle", "Go", "sparrow", "pigeon"]
 }-->
 
-# File1 Title
+# File2 Title
 
 ``` bash
 sudo rm -r *
 ```
+
+$2^(n-1) - 1$
